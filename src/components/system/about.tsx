@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import SlideUpWhenVisible from "./animate_when_visible";
 
 const About = () => {
   return (
@@ -9,7 +12,10 @@ const About = () => {
       </div>
       <div className=" container mx-auto py-24">
         <div className=" grid grid-cols-5 gap-8">
-          <div className="relative col-span-5 lg:col-span-3">
+          <SlideUpWhenVisible
+            from="right"
+            className="relative col-span-5 lg:col-span-3"
+          >
             <Image
               src={"/images/about.jpg"}
               alt="about"
@@ -26,8 +32,11 @@ const About = () => {
               <p className=" text-8xl font-semibold">10</p>
               <p className=" text-lg font-semibold">жилийн ажлын туршлага</p>
             </div>
-          </div>
-          <div className="relative col-span-5 lg:col-span-2 text-[#1C1F35] flex flex-col justify-center gap-8">
+          </SlideUpWhenVisible>
+          <SlideUpWhenVisible
+            from="left"
+            className="relative col-span-5 lg:col-span-2 text-[#1C1F35] flex flex-col justify-center gap-8"
+          >
             <div className="space-y-4">
               <h2 className=" uppercase text-3xl font-semibold">
                 Бид юу хийдэг вэ?
@@ -50,7 +59,7 @@ const About = () => {
                 юм.
               </p>
             </div>
-          </div>
+          </SlideUpWhenVisible>
         </div>
       </div>
     </div>

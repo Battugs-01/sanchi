@@ -32,10 +32,10 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 right-0 w-full bg-black/30 backdrop-blur-md z-20">
-      <div className=" container mx-auto py-4 flex items-center justify-between gap-2">
+      <div className=" container mx-auto py-4 flex items-center justify-between gap-8">
         <div className="text-white">LOGO</div>
         <div className="md:flex justify-between items-center hidden w-full">
-          <div className=" flex items-center ">
+          <div className=" flex items-center gap-4">
             {HEADERS.map((header) => (
               <>
                 <Link
@@ -107,7 +107,7 @@ const HamburerMenu = ({
             {HEADERS.map((header) => (
               <>
                 <Link
-                  key={`header-${header.tag}`}
+                  key={`header-mobile-${header.tag}`}
                   href={{
                     pathname: "/",
                     query: { section: header.tag },
@@ -124,7 +124,7 @@ const HamburerMenu = ({
           </div>
           <div className="flex items-center gap-4 ">
             {SOCIAL_LINKS.map((link) => (
-              <Link key={`social-${link.title}`} href={link.href}>
+              <Link key={`social-mobile-${link.title}`} href={link.href}>
                 <div className="  flex justify-center items-center bg-white bg-opacity-20 p-2 rounded-md text-black">
                   <Instagram />
                 </div>
