@@ -4,7 +4,7 @@ const shapes = {
   square: "rounded-none",
   circle: "rounded-[50%]",
   round: "rounded-[24px]",
-} as const;
+} as any;
 
 const variants = {
   fill: {
@@ -17,7 +17,7 @@ const variants = {
     white_A700_19: "bg-white-A700_19",
   },
   gradient: { yellow_700_orange_100: "bg-gradient " },
-} as const;
+} as any;
 
 const sizes = {
   xs: "p-1",
@@ -25,7 +25,7 @@ const sizes = {
   md: "p-3.5",
   lg: "p-[19px]",
   xl: "px-4 py-[22px]",
-} as const;
+} as any;
 
 export type ButtonProps = Omit<
   React.DetailedHTMLProps<
@@ -35,14 +35,14 @@ export type ButtonProps = Omit<
   "onClick"
 > &
   Partial<{
-    className: string;
-    shape: keyof typeof shapes;
-    variant: keyof typeof variants;
-    size: keyof typeof sizes;
-    color: string;
-    leftIcon: React.ReactNode;
-    rightIcon: React.ReactNode;
-    onClick: () => void;
+    className: any;
+    shape: any;
+    variant: any;
+    size: any;
+    color: any;
+    leftIcon: any;
+    rightIcon: any;
+    onClick: () => any;
   }>;
 
 const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
