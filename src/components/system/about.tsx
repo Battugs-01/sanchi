@@ -2,16 +2,17 @@
 
 import Image from "next/image";
 import SlideUpWhenVisible from "./animate_when_visible";
+import { Button } from "./button";
 
 const About = () => {
   return (
-    <div className="w-full min-h-screen relative">
+    <div className="w-full min-h-screen relative md:pt-48 pt-24" id="make">
       <div className="w-full h-full flex bg-[#F2F2F2] absolute top-0 left-0 z-0">
         <div className=" flex-1 h-full bg-gradient1 hidden lg:block" />
         <div className=" flex-1 h-full bg-transparent" />
       </div>
-      <div className=" container mx-auto py-24">
-        <div className=" grid grid-cols-5 gap-8">
+      <div className="container mx-auto py-24">
+        <div className="grid grid-cols-5 gap-8 w-full">
           <SlideUpWhenVisible
             from="right"
             className="relative col-span-5 lg:col-span-3"
@@ -21,43 +22,96 @@ const About = () => {
               alt="about"
               width={930}
               height={610}
+              className="rounded"
             />
-            <div className="absolute bottom-0 right-1/2 translate-x-1/2 bg-gradient p-4 flex gap-4 items-center">
+            <div className="absolute bottom-0 right-1/2 translate-x-1/2 bg-gradient p-4 flex gap-4 items-center w-full md:w-fit">
               <Image
                 src={"/svg/transport.svg"}
                 alt="about"
                 width={65}
                 height={80}
+                className="h-[30px] md:h-auto"
               />
-              <p className=" text-8xl font-semibold">10</p>
-              <p className=" text-lg font-semibold">жилийн ажлын туршлага</p>
+              <p className="text-2xl md:text-4xl lg:text-8xl font-semibold ">
+                10
+              </p>
+              <p className="text-lg font-semibold">жилийн ажлын туршлага</p>
             </div>
           </SlideUpWhenVisible>
           <SlideUpWhenVisible
             from="left"
-            className="relative col-span-5 lg:col-span-2 text-[#1C1F35] flex flex-col justify-center gap-8"
+            className="relative col-span-5 lg:col-span-2 text-[#1C1F35] flex flex-col justify-start  gap-8 md:ml-[80px]"
           >
-            <div className="space-y-4">
-              <h2 className=" uppercase text-3xl font-semibold">
+            <div className="space-y-7">
+              <h2 className="uppercase text-3xl font-semibold text-gray-900_01">
                 Бид юу хийдэг вэ?
               </h2>
-              <p>
+              <p className="text-blue_gray-600 text-xl">
                 Бид бизнес эрхлэгчдийн гадаад худалдааны тээвэрлэлтийг зохион
                 байгуулж, ОУ-ын стандарт, МУ-ын хууль тогтоомжийн хүрээнд
                 хөнгөвчлөх, зуучлах цогц үйлчилгээг үзүүлэгч үндэсний компани
                 юм.
               </p>
             </div>
-            <div className="space-y-4">
-              <p className=" uppercase text-2xl font-semibold">
+            <div className="space-y-7 mt-8  flex-col justify-center items-center ">
+              <p className="uppercase text-3xl font-semibold text-gray-900_01">
                 БИдний давуу тал
               </p>
-              <p>
-                Бид бизнес эрхлэгчдийн гадаад худалдааны тээвэрлэлтийг зохион
-                байгуулж, ОУ-ын стандарт, МУ-ын хууль тогтоомжийн хүрээнд
-                хөнгөвчлөх, зуучлах цогц үйлчилгээг үзүүлэгч үндэсний компани
-                юм.
-              </p>
+              <div className="flex gap-3 space-x-4 pb-4">
+                <Button
+                  className="flex h-[60px] items-center justify-center rounded-[31px] w-[60px]"
+                  size="lg"
+                  variant="gradient"
+                  color="yellow_700_orange_100"
+                >
+                  <Image
+                    src="/svg/img_thumbsup.svg"
+                    height={20}
+                    width={20}
+                    alt="thumbs up"
+                  />
+                </Button>
+                <p className="text-gray-900_01 text-xl flex-1">
+                  Хөрөнгө оруулалтын чадавхитай үндэсний компани
+                </p>
+              </div>
+              <div className="flex gap-3 space-x-4 ">
+                <Button
+                  className="flex h-[60px] items-center justify-center rounded-[31px] w-[60px]"
+                  size="lg"
+                  variant="gradient"
+                  color="yellow_700_orange_100"
+                >
+                  <Image
+                    src="/svg/img_clock.svg"
+                    height={20}
+                    width={20}
+                    alt="clock"
+                  />
+                </Button>
+                <p className="text-gray-900_01 text-xl flex-1">
+                  Харилцагчийн тав тухыг хангасан өөрийн эзэмшлийн терминалын
+                  талбай
+                </p>
+              </div>
+              <div className="flex gap-3 space-x-4">
+                <Button
+                  className="flex h-[60px] items-center justify-center rounded-[31px] w-[60px]"
+                  size="lg"
+                  variant="gradient"
+                  color="yellow_700_orange_100"
+                >
+                  <Image
+                    src="/svg/img_globe.svg"
+                    height={20}
+                    width={20}
+                    alt="globe"
+                  />
+                </Button>
+                <p className="text-gray-900_01 text-xl flex-1">
+                  Терминалын үйлчилгээний мэргэшсэн, чадварлаг ажилтнууд
+                </p>
+              </div>
             </div>
           </SlideUpWhenVisible>
         </div>

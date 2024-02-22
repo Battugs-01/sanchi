@@ -3,24 +3,28 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import SlideUpWhenVisible from "./animate_when_visible";
+import { Line } from "./Line";
 
 const Hero = () => {
   return (
-    <div className="w-full h-screen relative z-10">
+    <div className="w-full h-screen relative z-10 overflow-visible">
       <Image
-        src={"/images/hero.jpg"}
+        src={"/images/hero_edited.png"}
         alt="hero"
         width={1920}
         height={1080}
-        className=" object-cover w-full h-full bg bg-right z-[2]"
+        className=" object-cover overflow-visible w-full h-full bg bg-right z-[2]"
         priority
       />
       <div className="w-full h-full absolute top-0 right-0 z-[10] flex items-center justify-center">
         <div className="z-10 container mx-auto flex justify-start ">
           <div className=" rounded-lg backdrop-blur-md bg-black/20 border-gray-500 border flex flex-col gap-4 p-10 text-white w-[100%] md:w-[70%] lg:w-[50%]">
-            <SlideUpWhenVisible from="top">
-              <div>Ти Ай Ложистик</div>
-            </SlideUpWhenVisible>
+            <div className="flex flex-row items-center justify-start w-[24%] md:w-full">
+              <Line className="bg-gradient  h-[23px] w-1" />
+              <SlideUpWhenVisible from="top">
+                <div className="ml-2">Ти Ай Ложистик</div>
+              </SlideUpWhenVisible>
+            </div>
             <SlideUpWhenVisible from="top">
               <h1 className=" font-bold text-4xl md:text-6xl">
                 ТЭЭВЭР ЗУУЧЛАЛЫН ЦОГЦ{" "}
@@ -40,10 +44,11 @@ const Hero = () => {
             </SlideUpWhenVisible>
             <SlideUpWhenVisible from="top">
               <Button
-                className=" bg-yellow-400 text-black w-fit hover:bg-yellow-400 font-semibold text-md hover:scale-105 transition-transform hover:shadow"
+                className="relative bg-gradient text-black w-fit hover:bg-default font-semibold text-md hover:scale-105 transition-transform hover:shadow z-50 overflow-hidden hover:transition-all duration-500 ease-in-out"
                 size={"lg"}
               >
                 Каталог татах
+                <div className="absolute -bottom-7 -right-8 bg-[#fff] h-[50px] rotate-[-108deg] rounded-full w-[38%] z-0"></div>
               </Button>
             </SlideUpWhenVisible>
           </div>

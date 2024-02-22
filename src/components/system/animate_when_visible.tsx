@@ -19,7 +19,7 @@ const SlideUpWhenVisible: React.FC<Props> = ({
 }) => {
   const { ref, inView } = useInView({
     threshold: threshold || 0.6,
-    triggerOnce: true,
+    // triggerOnce: true,
     delay: delay || 0,
   });
 

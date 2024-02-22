@@ -23,6 +23,8 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Button } from "../ui/button";
+import path from "path";
+import Image from "next/image";
 
 const Header = () => {
   const currentPath = usePathname();
@@ -33,7 +35,23 @@ const Header = () => {
   return (
     <header className="fixed top-0 right-0 w-full bg-black/30 backdrop-blur-md z-20">
       <div className=" container mx-auto py-4 flex items-center justify-between gap-8">
-        <div className="text-white">LOGO</div>
+        <div className="text-white">
+          <Link
+            href={{
+              pathname: "/",
+              query: { section: "hero" },
+            }}
+          >
+            <Image
+              src="/images/logo.png"
+              alt="logo"
+              width={65}
+              height={65}
+              className="object-cover w-full h-full bg bg-right"
+              priority
+            />
+          </Link>
+        </div>
         <div className="md:flex justify-between items-center hidden w-full">
           <div className=" flex items-center gap-4">
             {HEADERS.map((header) => (
@@ -58,7 +76,25 @@ const Header = () => {
             {SOCIAL_LINKS.map((link) => (
               <Link key={`social-${link.title}`} href={link.href}>
                 <div className=" aspect-square flex justify-center items-center bg-white bg-opacity-20 p-2 rounded-md text-white">
-                  <Instagram />
+                  {link.icon === "Facebook" ? (
+                    <Image
+                      src="/svg/img_facebook.svg"
+                      alt="facebook"
+                      width={50}
+                      height={50}
+                      className="object-cover w-full h-full p-0.5"
+                      priority
+                    />
+                  ) : (
+                    <Image
+                      src="/svg/img_link.svg"
+                      alt="linkeden"
+                      width={70}
+                      height={70}
+                      className="object-cover w-full h-full p-0.5"
+                      priority
+                    />
+                  )}
                 </div>
               </Link>
             ))}
@@ -68,12 +104,26 @@ const Header = () => {
                 value === "mn" ? router.push(`/`) : router.push(`/en`);
               }}
             >
-              <SelectTrigger className="w-[60px]">
+              <SelectTrigger className="w-[80px]">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="mn">mn</SelectItem>
-                <SelectItem value="en">en</SelectItem>
+              <SelectContent className="w-[60px]">
+                <SelectItem value="mn" className="w-full">
+                  <Image
+                    src="/svg/mn.svg"
+                    width={30}
+                    height={20}
+                    alt="Mongolian Flag"
+                  />
+                </SelectItem>
+                <SelectItem value="en">
+                  <Image
+                    src="/svg/en.svg"
+                    width={30}
+                    height={20}
+                    alt="English Flag"
+                  />
+                </SelectItem>
               </SelectContent>
             </Select>
           </div>

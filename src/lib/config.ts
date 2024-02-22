@@ -28,14 +28,9 @@ export const SOCIAL_LINKS = [
     icon: "Facebook",
   },
   {
-    title: "Instagram",
-    href: "https://www.instagram.com/tai_lojistik",
-    icon: "Instagram",
-  },
-  {
-    title: "LinkedIn",
-    href: "https://www.linkedin.com/company/tai-lojistik",
-    icon: "LinkedIn",
+    title: "Linkeden",
+    href: "https://www.linkedin.com/company/tilogistic/?originalSubdomain=mn",
+    icon: "Linkeden",
   },
 ];
 
