@@ -15,6 +15,8 @@ const Hero = () => {
         height={1080}
         className=" object-cover overflow-visible w-full h-full bg bg-right z-[2]"
         priority
+        placeholder="blur"
+        blurDataURL="/images/hero_blurred.webp"
       />
       <div className="w-full h-full absolute top-0 right-0 z-[10] flex items-center justify-center">
         <div className="z-10 container mx-auto flex justify-start ">
