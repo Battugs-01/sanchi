@@ -6,6 +6,31 @@ import SlideUpWhenVisible from "./animate_when_visible";
 import { Line } from "./Line";
 
 const Hero = () => {
+  // const handleDownload = () => {
+  //   const pdfUrl = "../../assets/tanil.pdf";
+  //   const link = document.createElement("a");
+  //   link.href = pdfUrl;
+  //   link.download = "sample.pdf";
+  //   document.body.appendChild(link);
+  //   link.click();
+  //   document.body.removeChild(link);
+  // };
+
+  const handleClick = async () => {
+    const response = await fetch("/api/file");
+
+    if (response.status !== 200) {
+      console.error(response.status, response.statusText);
+    }
+
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "Taniltsuulga.pdf";
+    link.click();
+  };
+
   return (
     <div className="w-full h-screen relative z-10 overflow-visible">
       <Image
@@ -45,13 +70,17 @@ const Hero = () => {
               </div>
             </SlideUpWhenVisible>
             <SlideUpWhenVisible from="top">
-              <Button
-                className="relative bg-gradient text-black w-fit hover:bg-default font-semibold text-md hover:scale-105 transition-transform hover:shadow z-50 overflow-hidden hover:transition-all duration-500 ease-in-out"
-                size={"lg"}
-              >
-                Каталог татах
-                <div className="absolute -bottom-7 -right-8 bg-[#fff] h-[50px] rotate-[-108deg] rounded-full w-[38%] z-0"></div>
-              </Button>
+              <div>
+                <Button
+                  className="relative bg-gradient text-black w-fit hover:bg-default font-semibold text-md hover:scale-105 transition-transform hover:shadow z-50 overflow-hidden hover:transition-all duration-500 ease-in-out"
+                  size={"lg"}
+                  onClick={handleClick}
+                  // onClick={handleDownload}
+                >
+                  Каталог татах
+                  <div className="absolute -bottom-7 -right-8 bg-[#fff] h-[50px] rotate-[-108deg] rounded-full w-[38%] z-0"></div>
+                </Button>
+              </div>
             </SlideUpWhenVisible>
           </div>
         </div>

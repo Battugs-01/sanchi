@@ -31,7 +31,8 @@ const Header = () => {
   const currentPath = usePathname();
   const router = useRouter();
 
-  const currentLocale = currentPath.startsWith("/en") ? "en" : "mn";
+  const currentLocale =
+    currentPath && currentPath.startsWith("/en") ? "en" : "mn";
 
   return (
     <header className="fixed top-0 right-0 w-full bg-black/30 backdrop-blur-md z-20">
@@ -76,7 +77,7 @@ const Header = () => {
                     className={cn(
                       " ",
                       currentPath === "/" + header.tag
-                        ? "text-red-800"
+                        ? "text-white"
                         : "text-white"
                     )}
                   >

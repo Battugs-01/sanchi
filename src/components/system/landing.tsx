@@ -17,7 +17,7 @@ import Team from "./team";
 const Landing = () => {
   const searchParams = useSearchParams();
 
-  const section = searchParams.get("section");
+  const section = searchParams?.get("section");
 
   useEffect(() => {
     if (section) {
@@ -39,7 +39,7 @@ const Landing = () => {
       <Regions />
       <Partners />
       <News />
-      <HumanResources />
+      {/* <HumanResources /> */}
       <Team />
       <Contact />
     </div>

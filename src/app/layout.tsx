@@ -24,7 +24,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={cx(inter.className, "relative overflow-x-hidden")}>
         <Header />
-
         {children}
       </body>
     </html>
