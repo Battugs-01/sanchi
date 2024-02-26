@@ -34,7 +34,7 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 right-0 w-full bg-black/30 backdrop-blur-md z-20">
-      <div className=" container mx-auto py-4 flex items-center justify-between gap-8">
+      <div className="container mx-auto py-4 flex items-center justify-between gap-8">
         <div className="text-white">
           <Link
             href={{
@@ -63,9 +63,9 @@ const Header = () => {
                     query: { section: header.tag },
                   }}
                   shallow
-                  className="pr-4"
+                  className="pr-4 "
                 >
-                  <p className="text-white">
+                  <p className="text-white ">
                     {getTranslation(currentLocale, header.tag)}
                   </p>
                 </Link>
@@ -163,11 +163,13 @@ const HamburerMenu = ({
                     query: { section: header.tag },
                   }}
                   shallow
-                  className="pr-4"
+                  className="pr-4 "
                 >
-                  <p className="text-black">
-                    {getTranslation(currentLocale, header.tag)}
-                  </p>
+                  <Button className="">
+                    <p className="text-black ">
+                      {getTranslation(currentLocale, header.tag)}
+                    </p>
+                  </Button>
                 </Link>
               </>
             ))}

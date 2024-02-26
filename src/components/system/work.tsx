@@ -7,7 +7,10 @@ import SlideUpWhenVisible from "./animate_when_visible";
 const Work = () => {
   return (
     <div className="w-full min-h-[645px] relative">
-      <div className="absolute top-0 right-0 w-full h-[645px]  bg-[#101828]"></div>
+      <div
+        className="absolute top-0 right-0 w-full h-[645px]  bg-[#101828]  bg-cover bg-no-repeat items-center justify-start mx-auto z-0"
+        style={{ backgroundImage: "url('images/img_group3.png')" }}
+      ></div>
       <div className="z-10">
         <div className="container mx-auto text-auto pt-48">
           <SlideUpWhenVisible from="top">

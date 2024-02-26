@@ -28,7 +28,7 @@ const Hero = () => {
               </SlideUpWhenVisible>
             </div>
             <SlideUpWhenVisible from="top">
-              <h1 className=" font-bold text-4xl md:text-6xl">
+              <h1 className="font-bold text-4xl md:text-6xl">
                 ТЭЭВЭР ЗУУЧЛАЛЫН ЦОГЦ{" "}
                 <span className=" text-red-600">ШИЙДЭЛ</span>
               </h1>

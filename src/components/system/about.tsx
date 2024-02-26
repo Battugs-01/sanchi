@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import SlideUpWhenVisible from "./animate_when_visible";
-import { Button } from "./button";
+import { CustomButton } from "./button";
 
 const About = () => {
   return (
@@ -58,7 +58,7 @@ const About = () => {
                 БИдний давуу тал
               </p>
               <div className="flex gap-3 space-x-4 pb-4">
-                <Button
+                <CustomButton
                   className="flex h-[60px] items-center justify-center rounded-[31px] w-[60px]"
                   size="lg"
                   variant="gradient"
@@ -70,13 +70,13 @@ const About = () => {
                     width={20}
                     alt="thumbs up"
                   />
-                </Button>
+                </CustomButton>
                 <p className="text-gray-900_01 text-xl flex-1">
                   Хөрөнгө оруулалтын чадавхитай үндэсний компани
                 </p>
               </div>
               <div className="flex gap-3 space-x-4 ">
-                <Button
+                <CustomButton
                   className="flex h-[60px] items-center justify-center rounded-[31px] w-[60px]"
                   size="lg"
                   variant="gradient"
@@ -88,14 +88,14 @@ const About = () => {
                     width={20}
                     alt="clock"
                   />
-                </Button>
+                </CustomButton>
                 <p className="text-gray-900_01 text-xl flex-1">
                   Харилцагчийн тав тухыг хангасан өөрийн эзэмшлийн терминалын
                   талбай
                 </p>
               </div>
               <div className="flex gap-3 space-x-4">
-                <Button
+                <CustomButton
                   className="flex h-[60px] items-center justify-center rounded-[31px] w-[60px]"
                   size="lg"
                   variant="gradient"
@@ -107,7 +107,7 @@ const About = () => {
                     width={20}
                     alt="globe"
                   />
-                </Button>
+                </CustomButton>
                 <p className="text-gray-900_01 text-xl flex-1">
                   Терминалын үйлчилгээний мэргэшсэн, чадварлаг ажилтнууд
                 </p>

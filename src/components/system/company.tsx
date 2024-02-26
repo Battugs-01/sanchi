@@ -89,7 +89,7 @@ const Company = () => {
           className="absolute  my-auto object-cover right-[0] top-0 z-1"
           src="/images/img_pattern_black_900.png"
           alt="pattern_Three"
-          height={795}
+          height={705}
           width={1285}
         />
       </div>
@@ -100,14 +100,16 @@ const Company = () => {
 const CompanyCard = ({
   title,
   description,
+  src,
 }: {
   title: string;
   description: string;
+  src: string;
 }) => {
   return (
     <div className="flex flex-col gap-8 bg-gray hover:bg-gradient1 rounded-md p-4 hover:drop-shadow-lg transition-all  hover:-translate-y-2 hover:text-white z-10">
-      <div className="relative rounded-full bg-gradient w-fit p-1 aspect-square flex items-center justify-center">
-        <Image src="/svg/transport.svg" alt="about" width={38} height={38} />
+      <div className="relative rounded-full bg-gradient w-fit p-2 aspect-square flex items-center justify-center">
+        <Image src={src} alt="about" width={38} height={38} />
       </div>
       <h3>{title}</h3>
       <p>{description}</p>

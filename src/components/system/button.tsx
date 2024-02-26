@@ -45,7 +45,7 @@ export type ButtonProps = Omit<
     onClick: () => any;
   }>;
 
-const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
+const CustomButton: React.FC<React.PropsWithChildren<ButtonProps>> = ({
   children,
   className = "",
   leftIcon,
@@ -70,4 +70,4 @@ const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
   );
 };
 
-export { Button };
+export { CustomButton };

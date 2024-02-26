@@ -22,7 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cx(inter.className, "relative")}>{children}</body>
+      <body className={cx(inter.className, "relative overflow-x-hidden")}>
+        {children}
+      </body>
     </html>
   );
 }

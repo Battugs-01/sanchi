@@ -11,6 +11,9 @@ import Services from "@/components/system/services";
 import Work from "@/components/system/work";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
+import HumanResources from "./human_resources";
+import Contact from "./contact";
+import Team from "./team";
 const Landing = () => {
   const searchParams = useSearchParams();
 
@@ -37,6 +40,9 @@ const Landing = () => {
       <Regions />
       <Partners />
       <News />
+      <HumanResources />
+      <Team />
+      <Contact />
     </div>
   );
 };

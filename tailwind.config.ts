@@ -58,6 +58,28 @@ const config = {
         },
       },
       keyframes: {
+        typewriter: {
+          to: {
+            left: "100%",
+          },
+        },
+        blink: {
+          "0%": {
+            opacity: "0",
+          },
+          "0.1%": {
+            opacity: "1",
+          },
+          "50%": {
+            opacity: "1",
+          },
+          "50.1%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "0",
+          },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -66,16 +88,29 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "infinite-scroll": {
-          from: { transform: "translateX(0)" },
+        "loop-scroll": {
+          from: { transform: "translateX(100%)" },
           to: { transform: "translateX(-100%)" },
         },
+        "loop-scroll2": {
+          from: { transform: "translateX(-100%)" },
+          to: { transform: "translateX(100%)" },
+        },
       },
-
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "infinite-scroll": "infinite-scroll 25s linear infinite",
+        "loop-scroll": "loop-scroll 20s linear infinite",
+        "loop-scroll2": "loop-scroll 17s linear infinite",
+        typewriter: "typewriter 2s steps(11) forwards",
+        caret:
+          "typewriter 2s steps(11) forwards, blink 1s steps(11) infinite 2s",
+      },
+      boxShadow: {
+        bs2: "0px -1px  1px 0px #233651",
+        bs1: "0px 1px  2px 0px #1018280c",
+        bs: "0px 6px  32px 0px #151c270f",
+        bs4: "0px 12px  56px 0px #061c3d1e",
       },
       backgroundImage: {
         gradient: "linear-gradient(126deg ,#ffb629,#ffd956,#ffd6a5)",
@@ -83,6 +118,7 @@ const config = {
         gradient2: "linear-gradient(180deg ,#f8f9fb19,#00468c19)",
         default: "linear-gradient(180deg ,#ffffff,#ffffff)",
         gray: "linear-gradient(180deg ,#F9FAFB,#F9FAFB)",
+        gradient3: "linear-gradient(180deg ,#00000000,#000000)",
       },
     },
   },
