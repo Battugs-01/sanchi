@@ -1,18 +1,7 @@
-import Image from "next/image";
-import { Button } from "../ui/button";
 import { ManagerNamesData } from "@/lib/config";
+import Image from "next/image";
 import Link from "next/link";
-
-function chunkArray(array: any, size: any) {
-  const chunkedArray = [];
-  for (let i = 0; i < array.length; i += size) {
-    chunkedArray.push(array.slice(i, i + size));
-  }
-  return chunkedArray;
-}
-
-// Chunk the ManagerNamesData array into groups of 4
-const chunks = chunkArray(ManagerNamesData, 4);
+import { Button } from "../ui/button";
 
 const Team = () => {
   return (
@@ -21,23 +10,22 @@ const Team = () => {
         <p className="font-bold text-4xl uppercase">
           Манай <span className=" font-medium">Баг</span>
         </p>
-        {chunks.map((chunk, rowIndex) => (
-          <div key={`row-${rowIndex}`} className="flex flex-row gap-5">
-            {chunk.map((item: any, index: any) => (
-              <div key={`manager-${rowIndex}-${index}`} className="flex-1">
-                <HomeTeammembercard
-                  className="bg-white-A700 flex flex-col gap-6 items-center justify-start p-6 sm:px-5 rounded-[16px] shadow-bs4"
-                  username={item.name}
-                  userrole={item.position}
-                  email={item.email}
-                  phone={item.phone}
-                  image={item.src}
-                  alt={item.alt}
-                />
-              </div>
-            ))}
-          </div>
-        ))}
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {ManagerNamesData.map((item: any, index: any) => {
+            return (
+              <HomeTeammembercard
+                key={`row-${index}`}
+                className="bg-white-A700 flex flex-col gap-6 items-center justify-start p-6 sm:px-5 rounded-[16px] shadow-bs4"
+                username={item.name}
+                userrole={item.position}
+                email={item.email}
+                phone={item.phone}
+                image={item.src}
+                alt={item.alt}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );

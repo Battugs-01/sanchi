@@ -9,7 +9,7 @@ const translationData = {
     services: "Бүтээгдэхүүн үйлчилгээ",
     news: "Мэдээ мэдээлэл",
     contact: "Холбоо барих",
-    humanresources: "Ажлын байр",
+    human_resources: "Ажлын байр",
   },
   en: {
     home: "Home",
@@ -17,6 +17,6 @@ const translationData = {
     services: "Services",
     news: "News",
     contact: "Contact",
-    humanresources: "Human Resources",
+    human_resources: "Human Resources",
   },
 };

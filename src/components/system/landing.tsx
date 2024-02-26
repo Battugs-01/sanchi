@@ -31,7 +31,6 @@ const Landing = () => {
   //asdads
   return (
     <div className="min-h-screen w-full relative">
-      <Header />
       <Hero />
       <About />
       <Company />

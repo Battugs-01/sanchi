@@ -17,7 +17,8 @@ export const HEADERS = [
   },
   {
     title: "Ажлын байр",
-    tag: "humanresources",
+    tag: "human_resources",
+    external: true,
   },
   {
     title: "Холбоо барих",

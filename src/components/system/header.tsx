@@ -25,6 +25,7 @@ import {
 import { Button } from "../ui/button";
 import path from "path";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 const Header = () => {
   const currentPath = usePathname();
@@ -58,14 +59,27 @@ const Header = () => {
               <>
                 <Link
                   key={`header-${header.tag}`}
-                  href={{
-                    pathname: "/",
-                    query: { section: header.tag },
-                  }}
-                  shallow
+                  href={
+                    !header.external
+                      ? {
+                          pathname: "/",
+                          query: { section: header.tag },
+                        }
+                      : {
+                          pathname: header.tag,
+                        }
+                  }
+                  // shallow
                   className="pr-4 "
                 >
-                  <p className="text-white ">
+                  <p
+                    className={cn(
+                      " ",
+                      currentPath === "/" + header.tag
+                        ? "text-red-800"
+                        : "text-white"
+                    )}
+                  >
                     {getTranslation(currentLocale, header.tag)}
                   </p>
                 </Link>
