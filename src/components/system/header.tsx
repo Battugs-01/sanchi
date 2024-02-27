@@ -1,8 +1,17 @@
 "use client";
 
-import { HEADERS, SOCIAL_LINKS } from "@/lib/config";
-import { Instagram, Menu } from "lucide-react";
-import Link from "next/link";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 import {
   Select,
   SelectContent,
@@ -10,22 +19,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { usePathname, useRouter } from "next/navigation";
-import { getTranslation } from "@/locale/common";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
-import { Button } from "../ui/button";
-import path from "path";
-import Image from "next/image";
+import { HEADERS, SOCIAL_LINKS } from "@/lib/config";
 import { cn } from "@/lib/utils";
+import { getTranslation } from "@/locale/common";
+import { Instagram, Menu } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
 
 const Header = () => {
   const currentPath = usePathname();
@@ -33,6 +34,58 @@ const Header = () => {
 
   const currentLocale =
     currentPath && currentPath.startsWith("/en") ? "en" : "mn";
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const MenuLink = ({
+    header,
+    className,
+  }: {
+    header: any;
+    className?: string;
+  }) => {
+    return (
+      <Link
+        href={
+          !header.external
+            ? {
+                pathname: "/",
+                query: { section: header.tag },
+              }
+            : {
+                pathname: header.tag,
+              }
+        }
+        className=" border-b border-b-transparent hover:border-b-white transition-all duration-300 ease-in-out"
+      >
+        <p className={cn("text-white", className)}>
+          {getTranslation(currentLocale, header.tag)}
+        </p>
+      </Link>
+    );
+  };
+
+  const MenuItem = ({ header }: { header: any }) => {
+    if (!header.children) {
+      return <MenuLink key={`header-${header.tag}`} header={header} />;
+    }
+    return (
+      <HoverCard openDelay={0} closeDelay={100}>
+        <HoverCardTrigger className="text-white border-b border-b-transparent hover:border-b-white transition-all duration-300 ease-in-out">
+          {getTranslation(currentLocale, header.tag)}
+        </HoverCardTrigger>
+        <HoverCardContent className="">
+          {header.children.map((child: any) => (
+            <MenuLink
+              key={`sub-header-${header.tag}-${child.tag}`}
+              header={child}
+              className="text-black py-1"
+            />
+          ))}
+        </HoverCardContent>
+      </HoverCard>
+    );
+  };
 
   return (
     <header className="fixed top-0 right-0 w-full bg-black/30 backdrop-blur-md z-20">
@@ -55,36 +108,9 @@ const Header = () => {
           </Link>
         </div>
         <div className="md:flex justify-between items-center hidden w-full">
-          <div className=" flex items-center gap-4">
+          <div className=" flex items-center gap-6">
             {HEADERS.map((header) => (
-              <>
-                <Link
-                  key={`header-${header.tag}`}
-                  href={
-                    !header.external
-                      ? {
-                          pathname: "/",
-                          query: { section: header.tag },
-                        }
-                      : {
-                          pathname: header.tag,
-                        }
-                  }
-                  // shallow
-                  className="pr-4 "
-                >
-                  <p
-                    className={cn(
-                      " ",
-                      currentPath === "/" + header.tag
-                        ? "text-white"
-                        : "text-white"
-                    )}
-                  >
-                    {getTranslation(currentLocale, header.tag)}
-                  </p>
-                </Link>
-              </>
+              <MenuItem key={`header-${header.tag}`} header={header} />
             ))}
           </div>
           <div className="flex items-center gap-2">
@@ -144,7 +170,12 @@ const Header = () => {
           </div>
         </div>
         <div className=" block md:hidden">
-          <HamburerMenu currentLocale={currentLocale} router={router} />
+          <HamburerMenu
+            currentLocale={currentLocale}
+            router={router}
+            open={isMenuOpen}
+            onOpenChange={(open) => setIsMenuOpen(open)}
+          />
         </div>
       </div>
     </header>
@@ -154,12 +185,16 @@ const Header = () => {
 const HamburerMenu = ({
   currentLocale,
   router,
+  open,
+  onOpenChange,
 }: {
   currentLocale: string;
   router: any;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
 }) => {
   return (
-    <Drawer direction="bottom">
+    <Drawer direction="bottom" open={open} onOpenChange={onOpenChange}>
       <DrawerTrigger className="text-white">
         <Menu />
       </DrawerTrigger>
@@ -170,23 +205,19 @@ const HamburerMenu = ({
         <div className=" text-black px-4 space-y-4">
           <div className="flex flex-col gap-4">
             {HEADERS.map((header) => (
-              <>
-                <Link
-                  key={`header-mobile-${header.tag}`}
-                  href={{
-                    pathname: "/",
-                    query: { section: header.tag },
-                  }}
-                  shallow
-                  className="pr-4 "
-                >
-                  <Button className="">
-                    <p className="text-black ">
-                      {getTranslation(currentLocale, header.tag)}
-                    </p>
-                  </Button>
-                </Link>
-              </>
+              <Link
+                key={`header-mobile-${header.tag}`}
+                href={{
+                  pathname: "/",
+                  query: { section: header.tag },
+                }}
+                shallow
+                className="pr-4 "
+              >
+                <p className="text-black " onClick={() => onOpenChange(false)}>
+                  {getTranslation(currentLocale, header.tag)}
+                </p>
+              </Link>
             ))}
           </div>
           <div className="flex items-center gap-4 ">

@@ -6,6 +6,17 @@ export const HEADERS = [
   {
     title: "Бидний тухай",
     tag: "about",
+    children: [
+      {
+        title: "Захирлын мэндчилгээ",
+        tag: "greeting",
+        external: true,
+      },
+      {
+        title: "Бидний түүх",
+        tag: "story",
+      },
+    ],
   },
   {
     title: "Бүтээгдэхүүн үйлчилгээ",

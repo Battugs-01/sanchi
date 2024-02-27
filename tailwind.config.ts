@@ -63,6 +63,7 @@ const config = {
             left: "100%",
           },
         },
+
         blink: {
           "0%": {
             opacity: "0",
@@ -88,23 +89,29 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "loop-scroll": {
-          from: { transform: "translateX(100%)" },
-          to: { transform: "translateX(-100%)" },
+
+        infiniteSlider: {
+          "0%": { transform: "translateX(0)" },
+          "100%": {
+            // i have 300px width of the slider 10 items
+            transform: "translateX(calc(-100%))",
+          },
         },
-        "loop-scroll2": {
-          from: { transform: "translateX(-100%)" },
-          to: { transform: "translateX(100%)" },
+        infiniteSlider2: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": {
+            transform: "translateX(0)",
+          },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "loop-scroll": "loop-scroll 20s linear infinite",
-        "loop-scroll2": "loop-scroll 17s linear infinite",
         typewriter: "typewriter 2s steps(11) forwards",
         caret:
           "typewriter 2s steps(11) forwards, blink 1s steps(11) infinite 2s",
+        ["infinite-slider"]: "infiniteSlider 20s linear infinite",
+        ["infinite-slider2"]: "infiniteSlider2 20s linear infinite",
       },
       boxShadow: {
         bs2: "0px -1px  1px 0px #233651",

@@ -1,4 +1,5 @@
 import { PartnersLogo } from "@/lib/config";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 const Partners = () => {
@@ -10,45 +11,67 @@ const Partners = () => {
         </p>
       </div>
       <div className="space-y-16">
-        <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
-          <ul className="flex w-[50%] items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-loop-scroll">
-            {PartnersLogo.slice(0, 10).map((card, index) => (
-              <li
-                key={`sda-${index}`}
-                className="rounded-full shadow-md bg-white flex items-center gap-2 px-4 py-2 "
-              >
-                <Image src={card.src} alt={card.alt} width={40} height={40} />
-                <p>Partner</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
-          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-loop-scroll2 ">
-            {PartnersLogo.slice(10, 20).map((card, index) => (
-              <li
-                key={`fd-${index}`}
-                className="rounded-full shadow-md bg-white flex items-center gap-2 px-4 py-2 "
-              >
-                <Image src={card.src} alt={card.alt} width={40} height={40} />
-                <p>Partner</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
-          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-loop-scroll ">
-            {PartnersLogo.slice(20, 30).map((card, index) => (
-              <li
-                key={`hgf-${index}`}
-                className="rounded-full shadow-md bg-white flex items-center gap-2 px-4 py-2 "
-              >
-                <Image src={card.src} alt={card.alt} width={40} height={40} />
-                <p>Partner</p>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <InfiniteSlider logos={PartnersLogo.slice(0, 10)} />
+        <InfiniteSlider logos={PartnersLogo.slice(10, 20)} direction="right" />
+        <InfiniteSlider logos={PartnersLogo.slice(20, 30)} />
+      </div>
+    </div>
+  );
+};
+
+const InfiniteSlider = ({
+  logos,
+  direction,
+}: {
+  logos: { alt: string; src: string }[];
+  direction?: "left" | "right";
+}) => {
+  return (
+    <div className=" w-[100wv] ">
+      <div
+        className={cn(
+          " animate-infinite-slider flex gap-8 items-center whitespace-nowrap",
+          direction === "right"
+            ? "animate-infinite-slider"
+            : "animate-infinite-slider2"
+        )}
+      >
+        {logos.map((card, index) => (
+          <div
+            key={`hgf-${index}`}
+            className="rounded-full shadow-md bg-white flex items-center gap-2 px-4 py-2 min-w-[200px] min-h-[50px] justify-center"
+          >
+            <Image src={card.src} alt={card.alt} width={40} height={40} />
+            <p>Partner</p>
+          </div>
+        ))}
+        {logos.map((card, index) => (
+          <div
+            key={`hgf-${index}`}
+            className="rounded-full shadow-md bg-white flex items-center gap-2 px-4 py-2 min-w-[200px] min-h-[50px] justify-center"
+          >
+            <Image src={card.src} alt={card.alt} width={40} height={40} />
+            <p>Partner</p>
+          </div>
+        ))}
+        {logos.map((card, index) => (
+          <div
+            key={`hgf-${index}`}
+            className="rounded-full shadow-md bg-white flex items-center gap-2 px-4 py-2 min-w-[200px] min-h-[50px] justify-center"
+          >
+            <Image src={card.src} alt={card.alt} width={40} height={40} />
+            <p>Partner</p>
+          </div>
+        ))}
+        {logos.map((card, index) => (
+          <div
+            key={`hgf-${index}`}
+            className="rounded-full shadow-md bg-white flex items-center gap-2 px-4 py-2 w-[200px] h-[50px] justify-center"
+          >
+            <Image src={card.src} alt={card.alt} width={40} height={40} />
+            <p>Partner</p>
+          </div>
+        ))}
       </div>
     </div>
   );

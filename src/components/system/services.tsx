@@ -4,21 +4,16 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
-import { CompanyCarouselData, ServicesData } from "@/lib/config";
+import { CompanyCarouselData } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import Autoplay from "embla-carousel-autoplay";
-import Image from "next/image";
-import { useState } from "react";
-import SlideUpWhenVisible from "./animate_when_visible";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { Button } from "../ui/button";
+import SlideUpWhenVisible from "./animate_when_visible";
 
 const Services = () => {
-  const [active, setActive] = useState(0);
-
   return (
     <div id="services">
       <div className=" container mx-auto py-32 text-center">
