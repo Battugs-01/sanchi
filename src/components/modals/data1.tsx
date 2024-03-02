@@ -27,7 +27,7 @@ const Data1 = () => {
             Олон улсын тээвэр зуучлал
           </DialogTitle>
         </DialogHeader>
-        <div>sda ym</div>
+        <div> End Heseg bn </div>
         <DialogFooter className="sm:justify-start">
           <DialogClose asChild>
             <Button
