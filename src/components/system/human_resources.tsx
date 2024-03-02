@@ -12,13 +12,34 @@ import {
   CompanyCarouselData,
   HumanResourcesData,
 } from "@/lib/config";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import SlideUpWhenVisible from "./animate_when_visible";
 import { Button } from "../ui/button";
 import { CustomButton } from "./button";
+import { BadgeCheck, PlusSquare } from "lucide-react";
 
 const HumanResources = () => {
+  const handleClick = async () => {
+    const response = await fetch("/api/doc");
+
+    if (response.status !== 200) {
+      console.error(response.status, response.statusText);
+    }
+
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "анкет.doc";
+    link.click();
+  };
+
   return (
     <div className="bg-[#F9FAFB]" id="humanresources">
       <div className="relative container mx-auto py-28 text-center  ">
@@ -56,7 +77,7 @@ const HumanResources = () => {
                       alt="check"
                     />
                   </CustomButton>
-                  <p className="text-[#1D2939] text-base  text-start">
+                  <p className="text-[#1D2939] text-lg  text-start">
                     {item.title}
                   </p>
                 </div>
@@ -76,7 +97,7 @@ const HumanResources = () => {
                   }),
                 ]}
               >
-                <CarouselContent className="w-full h-full">
+                <CarouselContent className="w-full h-full ">
                   {CompanyCarouselData.map((item, index) => (
                     <CarouselItem key={`company-carousel-${index}`}>
                       <Image
@@ -96,6 +117,7 @@ const HumanResources = () => {
             </div>
           </SlideUpWhenVisible>
         </div>
+
         <SlideUpWhenVisible from="top">
           <div className="flex flex-col items-start justify-start max-w-7xl sm:px-5 px-8 w-full">
             <div className="bg-gray-100 flex flex-col gap-8 items-center justify-center p-8 sm:px-5 rounded-[16px] w-full mt-20">
@@ -126,17 +148,104 @@ const HumanResources = () => {
                   height={48}
                 />
               </div>
+
               <div className="flex flex-col gap-2 items-center justify-start max-w-3xl w-full">
-                <p className="text-center text-gray-900_02 text-xl w-full">
+                <p className="text-center text-gray-900_02 text-3xl w-full font-bold">
                   Нээлттэй ажлын байр
                 </p>
+                <div className="h-[2px] bg-white w-full"></div>
+                <Collapsible className="mt-0 mb-0 pt-0 pb-0 ml-4">
+                  <CollapsibleTrigger className="text-2xl font-semibold">
+                    <div className="flex gap-2 justify-center items-center">
+                      <PlusSquare />
+                      ХАБЭА-н инженер
+                    </div>
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="flex justify-start pt-4 w-full flex-col items-start gap-2">
+                    <div className="text-xl font-semibold">
+                      Тавигдах шаардлага
+                    </div>
+                    <div className="flex flex-col items-start ml-10 gap-3  font-medium text-lg">
+                      <p className="flex gap-2">
+                        <BadgeCheck />
+                        ХАБЭА ажилтны мэргэшүүлэх сертификаттай{" "}
+                      </p>
+                      <div className="flex gap-2">
+                        <BadgeCheck />
+                        ХАБЭА ажилтан, инженерээр 2-оос дээш жил ажилласан
+                        туршлагатай
+                      </div>
+                      <div className="flex justify-start ml-0 w-full text-lg">
+                        <BadgeCheck />
+                        Хөдөлмөр хамгаалал, аюулгүй ажиллагааны дүрэм журмыг
+                        хэвшүүлэх, баримт бичиг боловсруулах чадвартай
+                      </div>
+                      <p className="flex gap-2">
+                        <BadgeCheck />
+                        Шаардлага тавьж ажлыг зохион байгуулах чадвартай
+                      </p>
+                      <p className="flex gap-2">
+                        <BadgeCheck />
+                        Ажлын цаг: 09-18:00
+                      </p>
+                    </div>
+                    <p className="text-lg">
+                      Жич: НДШ болон ЭМД төлнө. Өдрийн хоолтой мөн компанийн
+                      бусад урамшуулалд хамрагдана.
+                    </p>
+                  </CollapsibleContent>
+                </Collapsible>
+                <div className="h-[2px] bg-white w-full"></div>
+                <Collapsible className="mt-0 mb-0 pt-0 pb-0">
+                  <CollapsibleTrigger className="text-2xl font-semibold">
+                    <div className="flex gap-2 justify-center items-center">
+                      <PlusSquare />
+                      Ээлжийн харуул
+                    </div>
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="flex justify-start pt-4 w-full flex-col items-start gap-2">
+                    <div className="text-xl font-semibold">
+                      Тавигдах шаардлага
+                    </div>
+                    <div className="flex flex-col items-start ml-10 gap-3 text-lg font-medium">
+                      <p className="flex gap-2">
+                        {" "}
+                        <BadgeCheck />
+                        Ээлжийн харуул /оффисын гадна талбай болон гаалийн
+                        хяналтын бүсийн/:
+                      </p>
+                      <div className="flex gap-2">
+                        <BadgeCheck />
+                        Хариуцлагатай, шударга зөв хандлагатай
+                      </div>
+                      <div className="flex justify-start ml-0">
+                        <BadgeCheck className="mr-1" />
+                        Бусдад шаардлага тавих чадвартай, тогтвор суурьшилтай
+                        ажиллах
+                      </div>
+                      <p className="flex gap-2">
+                        <BadgeCheck />
+                        Ажлын цаг: 09-18:00
+                      </p>
+                    </div>
+                    <p className="text-lg">
+                      Жич: НДШ болон ЭМД төлнө. Өдрийн хоолтой мөн компанийн
+                      бусад урамшуулалд хамрагдана.
+                    </p>
+                  </CollapsibleContent>
+                </Collapsible>
+                <div className="h-[2px] bg-white w-full"></div>
                 <p className="leading-[28.00px] max-w-3xl md:max-w-full text-blue_gray-700 text-center text-lg">
                   Та нээлттэй ажлын байранд тавигдах шаардлагыг хангаж байна гэж
                   үзвэл онлайн анкетаа office@til.mn хаягт хандан илгээнэ үү.
                 </p>
               </div>
+
               <div className="flex flex-col items-start justify-start w-auto">
-                <Button className="border border-indigo-A400 border-solid cursor-pointer font-semibold min-w-[136px] rounded-lg text-base text-center">
+                <Button
+                  className="border border-indigo-A400 border-solid cursor-pointer font-semibold min-w-[136px] rounded-lg text-base text-center"
+                  onClick={handleClick}
+                >
                   Анкет татах
                 </Button>
               </div>

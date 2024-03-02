@@ -5,15 +5,28 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { CompanyCarouselData } from "@/lib/config";
+import {
+  CompanyCarouselData,
+  Services1Data,
+  Services2Data,
+  Services3Data,
+} from "@/lib/config";
 import { cn } from "@/lib/utils";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import SlideUpWhenVisible from "./animate_when_visible";
+import { useState } from "react";
+import Data1 from "../modals/data1";
+import { getTranslation } from "@/locale/common";
+import { usePathname } from "next/navigation";
 
 const Services = () => {
+  const currentPath = usePathname();
+
+  const currentLocale =
+    currentPath && currentPath.startsWith("/en") ? "en" : "mn";
   return (
     <div id="services">
       <div className=" container mx-auto py-32 text-center">
@@ -21,7 +34,10 @@ const Services = () => {
           Бүтээгдэхүүн <span className=" font-medium">үйлчилгээ</span>
         </p>
         <div className="relative flex flex-col gap-10">
-          <div className="grid md:grid-cols-2 gap-8 flex-col lg:flex-row z-10 grid-cols-1">
+          <div
+            className="grid md:grid-cols-2 gap-8 flex-col lg:flex-row z-10 grid-cols-1"
+            id="services1"
+          >
             <SlideUpWhenVisible
               className="col-span-1 z-10 hidden md:block"
               from="right"
@@ -39,7 +55,7 @@ const Services = () => {
                   ]}
                 >
                   <CarouselContent className="w-full h-full">
-                    {CompanyCarouselData.map((item, index) => (
+                    {Services1Data.map((item, index) => (
                       <CarouselItem key={`company-carousel-${index}`}>
                         <Image
                           src={item.src}
@@ -65,20 +81,20 @@ const Services = () => {
                 <h3 className="text-3xl font-semibold uppercase mb-4 text-start">
                   Олон улсын тээвэр зуучлал
                 </h3>
-                <p className="text-start">
+                <p className="text-start text-lg">
                   Бид дэлхийн улс орнуудад байрлах агентын өргөн сүлжээгээ
                   ашиглан үйлчлүүлэгчиддээ авто, агаар, далай, төмөр замын бүх
                   төрлийн тээврийн замналаар улс хоорондын болон орон нутгийн
                   ачаа тээврийг хаалганаас хаалганд хүргэн үйлчилдэг.
                 </p>
               </div>
-              <Button className="text-start rounded border-cyan-500 bg-cyan-500 shadow-lg shadow-cyan-500/50 text-[#fff] mt-4 flex items-center gap-2">
-                Дэлгэрэнгүй
-                <ArrowRight className="h-4 w-4" />
-              </Button>
+              <Data1 />
             </SlideUpWhenVisible>
           </div>
-          <div className="grid md:grid-cols-2  flex-col lg:flex-row z-10 grid-cols-1 gap-8">
+          <div
+            className="grid md:grid-cols-2  flex-col lg:flex-row z-10 grid-cols-1 gap-8"
+            id="services2"
+          >
             <SlideUpWhenVisible
               className="col-span-1 z-10  flex justify-center items-center "
               from="left"
@@ -87,7 +103,7 @@ const Services = () => {
                 <h3 className="text-3xl font-semibold uppercase mb-4 text-start">
                   Гаалын терминал
                 </h3>
-                <p className="text-start">
+                <p className="text-start text-lg">
                   Улаанбаатар хотын А зэрэглэлийн бүсэд байрлах өөрийн эзэмшлийн
                   “Нэг цэгийн үйлчилгээ” бүхий “ТЭЭВЭР ҮЙЛЧИЛГЭЭНИЙ ЦОГЦОЛБОР”-т
                   Гаалийн хяналтын бүс, стандартын шаардлага хангасан гаалийн
@@ -96,7 +112,7 @@ const Services = () => {
                 </p>
               </div>
               <Button className="text-start rounded border-cyan-500 bg-cyan-500 shadow-lg shadow-cyan-500/50 text-[#fff] mt-4 flex items-center gap-2">
-                Дэлгэрэнгүй
+                {getTranslation(currentLocale, "detail")}
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </SlideUpWhenVisible>
@@ -117,7 +133,7 @@ const Services = () => {
                   ]}
                 >
                   <CarouselContent className="w-full h-full">
-                    {CompanyCarouselData.map((item, index) => (
+                    {Services2Data.map((item, index) => (
                       <CarouselItem key={`company-carousel-${index}`}>
                         <Image
                           src={item.src}
@@ -136,7 +152,10 @@ const Services = () => {
               </div>
             </SlideUpWhenVisible>
           </div>
-          <div className="grid md:grid-cols-2  flex-col lg:flex-row z-10 grid-cols-1 gap-8">
+          <div
+            className="grid md:grid-cols-2  flex-col lg:flex-row z-10 grid-cols-1 gap-8"
+            id="services3"
+          >
             <SlideUpWhenVisible
               className="col-span-1 z-10 hidden md:block"
               from="right"
@@ -154,7 +173,7 @@ const Services = () => {
                   ]}
                 >
                   <CarouselContent className="w-full h-full">
-                    {CompanyCarouselData.map((item, index) => (
+                    {Services3Data.map((item, index) => (
                       <CarouselItem key={`company-carousel-${index}`}>
                         <Image
                           src={item.src}
@@ -178,7 +197,7 @@ const Services = () => {
                 <h3 className="text-3xl font-semibold uppercase mb-4 text-start">
                   Гаалын зуучлал
                 </h3>
-                <p className="text-start">
+                <p className="text-start text-lg">
                   Гаалийн бүрдүүлэлт нь гаалийн хилээр нэвтрүүлэх барааг гаалийн
                   байгууллагад мэдүүлсэн үеэс гаалийн бичиг баримтыг,
                   шаардлагатай тохиолдолд барааг шалгах, ногдуулсан татварыг
@@ -200,62 +219,7 @@ const Services = () => {
             width={1285}
           />
         </div>
-        {/* <div className="flex gap-8 flex-col lg:flex-row">
-          <div className="flex-1 hidden md:block">
-            {ServicesData.map((item, index) => (
-              <SlideUpWhenVisible key={`services-${index}`} delay={index * 100}>
-                <Item
-                  title={item.title}
-                  description={item.description}
-                  active={active === index}
-                />
-              </SlideUpWhenVisible>
-            ))}
-          </div>
-          <div className="flex-1 md:hidden block">
-            {ServicesData.map((item, index) => (
-              <SlideUpWhenVisible key={`services-${index}`}>
-                <Item
-                  title={item.title}
-                  description={item.description}
-                  active={active === index}
-                />
-              </SlideUpWhenVisible>
-            ))}
-          </div>
-          <div className="flex-1">
-            <SlideUpWhenVisible>
-              <Carousel
-                className="w-full"
-                opts={{
-                  loop: true,
-                }}
-                plugins={[
-                  Autoplay({
-                    delay: 5000,
-                  }),
-                ]}
-              >
-                <CarouselContent className="w-full h-full aspect-square">
-                  {CompanyCarouselData.map((item, index) => (
-                    <CarouselItem key={`service-carousel-${index}`}>
-                      <Image
-                        src={item.src}
-                        alt={item.alt}
-                        width={1080}
-                        height={1080}
-                        className=" object-cover w-full h-full bg bg-right z-[2]"
-                        priority
-                      />
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2" />
-                <CarouselNext className="absolute right-8 top-1/2 -translate-y-1/2" />
-              </Carousel>
-            </SlideUpWhenVisible>
-          </div>
-        </div> */}
+        {/* {<Data1 open={data1} onClose={closeDialog} />} */}
       </div>
     </div>
   );

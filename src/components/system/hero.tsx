@@ -60,7 +60,7 @@ const Hero = () => {
             </SlideUpWhenVisible>
             <SlideUpWhenVisible from="top">
               <div className=" text-justify">
-                <p>
+                <p className="text-lg">
                   Олон жилийн туршлагатай манай хамт олон харилцагч таны ачааг
                   дэлхийн өнцөг булан бүрээс гадаад агентын өргөн сүлжээгээ
                   ашиглан тээвэрлэлтийн бүхий л чиглэлд хүссэн хэмжээгээр далай,
@@ -77,7 +77,7 @@ const Hero = () => {
                   onClick={handleClick}
                   // onClick={handleDownload}
                 >
-                  Каталог татах
+                  Танилцуулга татах
                   <div className="absolute -bottom-7 -right-8 bg-[#fff] h-[50px] rotate-[-108deg] rounded-full w-[38%] z-0"></div>
                 </Button>
               </div>

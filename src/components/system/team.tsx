@@ -81,7 +81,7 @@ const HomeTeammembercard: React.FC<any> = (props) => {
         <p className="text-blue_gray-900_01 text-center text-xl tracking-[-0.24px] w-auto">
           {props?.username}
         </p>
-        <p className="text-base text-blue_gray-700_01 text-center w-auto">
+        <p className="text-lg text-blue_gray-700_01 text-center w-auto">
           {props?.userrole}
         </p>
       </div>

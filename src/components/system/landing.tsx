@@ -38,7 +38,7 @@ const Landing = () => {
       <Services />
       <Regions />
       <Partners />
-      <News />
+      {/* <News /> */}
       {/* <HumanResources /> */}
       <Team />
       <Contact />

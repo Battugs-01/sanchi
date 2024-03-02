@@ -25,7 +25,7 @@ const Company = () => {
               <h3 className="text-4xl font-semibold uppercase mb-4">
                 КОМПАНИЙН ТАНИЛЦУУЛГА
               </h3>
-              <p className="text-justify">
+              <p className="text-justify text-lg">
                 “ТИ АЙ ЛОЖИСТИК” ХХК нь 2011 онд 100 хувийн дотоодын хөрөнгө
                 оруулалттайгаар байгуулагдсан үндэсний тээвэр зуучийн
                 компаниудын нэг юм. Улаанбаатар хотын А зэрэглэлийн бүсэд
@@ -111,8 +111,8 @@ const CompanyCard = ({
       <div className="relative rounded-full bg-gradient w-fit p-2 aspect-square flex items-center justify-center">
         <Image src={src} alt="about" width={38} height={38} />
       </div>
-      <h3>{title}</h3>
-      <p>{description}</p>
+      <h3 className="text-lg">{title}</h3>
+      <p className="text-lg">{description}</p>
     </div>
   );
 };

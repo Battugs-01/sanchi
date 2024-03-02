@@ -18,21 +18,21 @@ const About = () => {
             className="relative col-span-5 lg:col-span-3"
           >
             <Image
-              src={"/images/about.jpg"}
+              src={"/images/Bid yu hiideg we.jpg"}
               alt="about"
               width={930}
-              height={610}
+              height={710}
               className="rounded"
             />
-            <div className="absolute bottom-0 right-1/2 translate-x-1/2 bg-gradient p-4 flex gap-4 items-center w-full md:w-fit">
+            <div className="absolute bottom-0 right-1/2 translate-x-1/2 bg-gradient p-2 flex gap-4 items-center w-full md:w-fit">
               <Image
                 src={"/svg/transport.svg"}
                 alt="about"
                 width={65}
-                height={80}
-                className="h-[30px] md:h-auto"
+                height={60}
+                className="h-[10px] md:h-auto"
               />
-              <p className="text-2xl md:text-4xl lg:text-8xl font-semibold ">
+              <p className="text-xl md:text-2xl lg:text-4xl font-semibold ">
                 10
               </p>
               <p className="text-lg font-semibold">жилийн ажлын туршлага</p>

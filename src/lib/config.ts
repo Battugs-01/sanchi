@@ -13,18 +13,33 @@ export const HEADERS = [
         external: true,
       },
       {
-        title: "Бидний түүх",
-        tag: "story",
+        title: "Бидний тухай",
+        tag: "about",
       },
     ],
   },
   {
     title: "Бүтээгдэхүүн үйлчилгээ",
     tag: "services",
+    children: [
+      {
+        title: "Олон улсын тээвэр зуучлал",
+        tag: "services1",
+      },
+      {
+        title: "Гаалийн терминал",
+        tag: "services2",
+      },
+      {
+        title: "Гаалийн зуучлал",
+        tag: "services3",
+      },
+    ],
   },
   {
     title: "Мэдээ мэдээлэл",
-    tag: "news",
+    tag: "https://til.digitalpress.blog/",
+    external: true,
   },
   {
     title: "Ажлын байр",
@@ -52,12 +67,51 @@ export const SOCIAL_LINKS = [
 
 export const CompanyCarouselData = [
   {
-    src: "/images/hero.jpg",
-    alt: "hero",
+    src: "/images/work3.jpg",
+    alt: "work3",
   },
   {
     src: "/images/about.jpg",
     alt: "about",
+  },
+  {
+    src: "/images/tan3.jpg",
+    alt: "tan3",
+  },
+  {
+    src: "/images/tan4.jpg",
+    alt: "tan4",
+  },
+];
+
+export const Services1Data = [
+  {
+    src: "/images/but1.jpg",
+    alt: "1",
+  },
+  {
+    src: "/images/but2.jpg",
+    alt: "2",
+  },
+];
+export const Services2Data = [
+  {
+    src: "/images/galt1.jpg",
+    alt: "1",
+  },
+  {
+    src: "/images/galt2.jpg",
+    alt: "2",
+  },
+];
+export const Services3Data = [
+  {
+    src: "/images/galz3.jpg",
+    alt: "1",
+  },
+  {
+    src: "/images/galz4.jpg",
+    alt: "2",
   },
 ];
 
@@ -151,20 +205,24 @@ export const CompanyCardData = [
 
 export const ServiceImages = [
   {
-    src: "/images/hero.jpg",
-    alt: "hero",
+    src: "/images/work1.jpg",
+    alt: "work1",
+    title: "Манлайлал",
   },
   {
-    src: "/images/about.jpg",
-    alt: "about",
+    src: "/images/work2.jpg",
+    alt: "work2",
+    title: "Ур чадвар",
   },
   {
-    src: "/images/hero.jpg",
-    alt: "hero",
+    src: "/images/work18.jpg",
+    alt: "work18",
+    title: "Хамт олон",
   },
   {
-    src: "/images/about.jpg",
-    alt: "about",
+    src: "/images/work4.jpg",
+    alt: "work4",
+    title: "Сэтгэл зүрх",
   },
 ];
 
@@ -268,133 +326,299 @@ export const NewsData = [
 
 export const PartnersLogo = [
   {
-    src: "/partner-logo/1.jpg",
+    src: "/partners/Abico.png",
     alt: "1",
-    // title: "",
+    title: "Abico",
   },
   {
-    src: "/partner-logo/2.jpg",
-    alt: "2",
+    src: "/partners/AG Maral Trending LLC.png",
+    alt: "AG Maral Trending LLC",
+    title: "AG Maral Trending LLC",
   },
   {
-    src: "/partner-logo/3.jpg",
+    src: "/partners/Altan joroo.png",
     alt: "3",
+    title: "Altan joroo",
   },
   {
-    src: "/partner-logo/4.jpg",
+    src: "/partners/Barloword mongolia.png",
     alt: "4",
+    title: "Barloword mongolia",
   },
   {
-    src: "/partner-logo/5.jpg",
+    src: "/partners/Bestcup.png",
     alt: "5",
+    title: "Bestcup",
   },
   {
-    src: "/partner-logo/6.jpg",
+    src: "/partners/Bimex 1.png",
     alt: "6",
+    title: "Bimex",
   },
   {
-    src: "/partner-logo/7.jpg",
+    src: "/partners/Bimex.png",
     alt: "7",
+    title: "Bimex Holding",
   },
   {
-    src: "/partner-logo/8.jpg",
+    src: "/partners/BNO.png",
     alt: "8",
+    title: "BNO LLC",
   },
   {
-    src: "/partner-logo/9.png",
+    src: "/partners/Cosmos Tech.png",
     alt: "9",
+    title: "Cosmos Tech",
   },
   {
-    src: "/partner-logo/10.png",
+    src: "/partners/Deutsche Welle.png",
     alt: "10",
+    title: "Deutsche Welle",
   },
   {
-    src: "/partner-logo/11.png",
+    src: "/partners/Doloon boldog.png",
     alt: "11",
+    title: "Doloon Boldog",
   },
   {
-    src: "/partner-logo/12.png",
+    src: "/partners/Dynamic tower.png",
     alt: "12",
+    title: "Dynamic Tower",
   },
   {
-    src: "/partner-logo/13.png",
+    src: "/partners/EMS.png",
     alt: "13",
+    title: "EMS",
   },
   {
-    src: "/partner-logo/14.png",
+    src: "/partners/ENEMOG LLC.png",
     alt: "14",
+    title: "ENEMOG LLC",
   },
   {
-    src: "/partner-logo/15.png",
+    src: "/partners/Erchim engineering.png",
     alt: "15",
+    title: "Erchim Engineering",
   },
   {
-    src: "/partner-logo/16.png",
+    src: "/partners/Erdenet hiws.png",
     alt: "16",
+    title: "Erdenet Hiws",
   },
   {
-    src: "/partner-logo/16.png",
+    src: "/partners/Ergel-and.png",
     alt: "16",
+    title: "Ergel And",
   },
   {
-    src: "/partner-logo/17.png",
+    src: "/partners/Esun od foods.png",
     alt: "17",
+    title: "Esun Od Foods",
   },
   {
-    src: "/partner-logo/18.png",
+    src: "/partners/Eternal Peace Sea.png",
     alt: "18",
+    title: "Eternal Peace Sea",
   },
   {
-    src: "/partner-logo/19.png",
+    src: "/partners/Everyday.png",
     alt: "19",
+    title: "Everyday",
   },
   {
-    src: "/partner-logo/20.png",
+    src: "/partners/Green Gate International.png",
     alt: "20",
+    title: "Green Gate International",
   },
   {
-    src: "/partner-logo/21.png",
+    src: "/partners/GTN.png",
     alt: "21",
+    title: "GTN",
   },
   {
-    src: "/partner-logo/22.png",
+    src: "/partners/HS EQUIPMENT.png",
     alt: "22",
+    title: "HS Equipment",
   },
   {
-    src: "/partner-logo/23.png",
+    src: "/partners/Janjin-urguu.png",
     alt: "23",
+    title: "Janjin Urguu",
   },
   {
-    src: "/partner-logo/24.png",
+    src: "/partners/JBG.png",
     alt: "24",
+    title: "JBG",
   },
   {
-    src: "/partner-logo/25.png",
+    src: "/partners/MAK.png",
     alt: "25",
+    title: "MAK",
   },
   {
-    src: "/partner-logo/26.png",
+    src: "/partners/Marmara.png",
     alt: "26",
+    title: "Marmara",
   },
   {
-    src: "/partner-logo/27.png",
+    src: "/partners/Maxexim.png",
     alt: "27",
+    title: "Maxexim",
   },
   {
-    src: "/partner-logo/28.webp",
+    src: "/partners/MCS property.png",
     alt: "28",
+    title: "MCS Property",
   },
   {
-    src: "/partner-logo/29.webp",
+    src: "/partners/Medicont.png",
     alt: "29",
+    title: "Medicont",
   },
   {
-    src: "/partner-logo/30.webp",
+    src: "/partners/minii suljee.png",
     alt: "30",
+    title: "Minii Suljee",
   },
   {
-    src: "/partner-logo/31.webp",
+    src: "/partners/Monbiopharm.png",
     alt: "31",
+    title: "Monbiopharm",
+  },
+  {
+    src: "/partners/NANO pharm trade.png",
+    alt: "32",
+    title: "NANO pharm trade",
+  },
+  {
+    src: "/partners/Montisco.png",
+    alt: "33",
+    title: "Montisco",
+  },
+  {
+    src: "/partners/MSD.png",
+    alt: "34",
+    title: "MSD",
+  },
+  {
+    src: "/partners/Nartiin golomt.png",
+    alt: "35",
+    title: "Nartiin golomt",
+  },
+  {
+    src: "/partners/NOTS.png",
+    alt: "36",
+    title: "NOTS",
+  },
+  {
+    src: "/partners/Planet international llc.png",
+    alt: "37",
+    title: "Planet international llc",
+  },
+  {
+    src: "/partners/Pligrims mongolia.png",
+    alt: "38",
+    title: "Pligrims mongolia",
+  },
+  {
+    src: "/partners/Rahamed Hospital.png",
+    alt: "39",
+    title: "Rahamed Hospital",
+  },
+  {
+    src: "/partners/Shoe gallery.png",
+    alt: "40",
+    title: "Shoe Gallery",
+  },
+  {
+    src: "/partners/shoe and more.png",
+    alt: "41",
+    title: "Shoe and more",
+  },
+  {
+    src: "/partners/Monbiopharm.png",
+    alt: "42",
+    title: "Monbiopharm",
+  },
+  {
+    src: "/partners/Skytel.png",
+    alt: "43",
+    title: "Skytel",
+  },
+  {
+    src: "/partners/Monbiopharm.png",
+    alt: "44",
+    title: "Monbiopharm",
+  },
+  {
+    src: "/partners/SN info tech.png",
+    alt: "45",
+    title: "SN info tech",
+  },
+  {
+    src: "/partners/Suld unit.png",
+    alt: "46",
+    title: "Suld unit",
+  },
+  {
+    src: "/partners/Skyttescomael.png",
+    alt: "47",
+    title: "tescoma",
+  },
+  {
+    src: "/partners/Taiwan zul.png",
+    alt: "48",
+    title: "Taiwan zul",
+  },
+  {
+    src: "/partners/Skytel.png",
+    alt: "49",
+    title: "Skytel",
+  },
+  {
+    src: "/partners/TML.png",
+    alt: "50",
+    title: "TML",
+  },
+  {
+    src: "/partners/Transwide solution.png",
+    alt: "51",
+    title: "Transwide solution",
+  },
+  {
+    src: "/partners/Tsahiur tumur.png",
+    alt: "52",
+    title: "Tsahiur tumur",
+  },
+  {
+    src: "/partners/Tugs urgats.png",
+    alt: "53",
+    title: "Tugs Urgats",
+  },
+  {
+    src: "/partners/Uguuj shim.png",
+    alt: "54",
+    title: "Uguuj Shim",
+  },
+  {
+    src: "/partners/ultrasonic.png",
+    alt: "55",
+    title: "Ultrasonic",
+  },
+  {
+    src: "/partners/Vintree.png",
+    alt: "56",
+    title: "Vintree",
+  },
+  {
+    src: "/partners/We international.png",
+    alt: "57",
+    title: "We international",
+  },
+  {
+    src: "/partners/World Food Chain LLC.png",
+    alt: "58",
+    title: "World Food Chain LLC",
   },
 ];
 

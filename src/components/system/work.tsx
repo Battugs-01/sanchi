@@ -39,7 +39,7 @@ const Work = () => {
                     className=" object-cover w-full h-full bg bg-right z-[2] group-hover:scale-110 transition-transform group-hover:shadow-lg rounded-md"
                   />
                   <div className=" text-2xl text-white absolute top-0 right-0 w-full h-full opacity-0 group-hover:opacity-100 bg-[#101828]/60 transition-opacity duration-300 flex justify-center items-center">
-                    Манлайлал
+                    {item?.title}
                   </div>
                 </div>
               ))}

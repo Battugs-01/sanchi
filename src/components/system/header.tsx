@@ -58,7 +58,7 @@ const Header = () => {
         }
         className=" border-b border-b-transparent hover:border-b-white transition-all duration-300 ease-in-out"
       >
-        <p className={cn("text-white", className)}>
+        <p className={cn("text-white text-lg", className)}>
           {getTranslation(currentLocale, header.tag)}
         </p>
       </Link>
@@ -100,8 +100,8 @@ const Header = () => {
             <Image
               src="/images/logo.png"
               alt="logo"
-              width={65}
-              height={65}
+              width={85}
+              height={85}
               className="object-cover w-full h-full bg bg-right"
               priority
             />

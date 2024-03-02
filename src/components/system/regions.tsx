@@ -81,7 +81,7 @@ const CountryCard = ({
       <div className="flex flex-col gap-10 items-start justify-between h-full">
         <>
           <p className="font-semibold text-xl">{title}</p>
-          <p className="text-base text-[#EAECF0]">{description}</p>
+          <p className="text-lg text-[#EAECF0]">{description}</p>
         </>
         <div>
           <p className="text-white/50 text-xl">{daytext}</p>
