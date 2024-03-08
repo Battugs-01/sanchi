@@ -17,6 +17,8 @@ const translationData = {
     services3: "Гаалийн зуучлал",
     detail: "Дэлгэрэнгүй",
     a: "ТЭЭВЭР ЗУУЧЛАЛЫН ЦОГЦ ШИЙДЭЛ",
+    hero_description:
+      "Олон жилийн туршлагатай манай хамт олон харилцагч таны ачааг дэлхийн өнцөг булан бүрээс гадаад агентын өргөн сүлжээгээ ашиглан тээвэрлэлтийн бүхий л чиглэлд хүссэн хэмжээгээр далай, төмөр зам, авто зам зэрэг сувгуудаар улс хооронд тээвэрлэх ачаа тээврийн үйлчилгээг санал болгож байна.",
   },
   en: {
     home: "Home",
@@ -32,5 +34,7 @@ const translationData = {
     services2: "Customs terminal managment",
     services3: "Customs intermediation service",
     a: "INTEGRATED LOGISTICS SOLUTIONS",
+    hero_description:
+      "With many years of experience, our team offers cargo transportation services to our customers from all over the world using our wide network of foreign agents in all directions of transportation.",
   },
 };

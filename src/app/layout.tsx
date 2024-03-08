@@ -4,6 +4,7 @@ import "./globals.css";
 import { cx } from "class-variance-authority";
 import Header from "@/components/system/header";
 import CustomHeader from "@/components/system/customHeader";
+import ContactHeader from "@/components/system/contact_header";
 
 const inter = Didact_Gothic({
   subsets: ["latin", "cyrillic"],
@@ -23,11 +24,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cx(inter.className, "relative overflow-x-hidden")}>
-        <>
+      <body className={cx(inter.className, "")}>
+        <div className="relative overflow-x-hidden w-full">
           <Header />
-        </>
-        {children}
+          {children}
+        </div>
       </body>
     </html>
   );

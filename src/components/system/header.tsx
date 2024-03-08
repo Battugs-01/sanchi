@@ -20,6 +20,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { HEADERS, SOCIAL_LINKS } from "@/lib/config";
+import useScrollPosition from "@/lib/use_scroll";
 import { cn } from "@/lib/utils";
 import { getTranslation } from "@/locale/common";
 import { Instagram, Menu } from "lucide-react";
@@ -28,7 +29,6 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { Button } from "../ui/button";
-import { Img } from "../Img";
 import { Line } from "./Line";
 
 const Header = () => {
@@ -39,6 +39,10 @@ const Header = () => {
     currentPath && currentPath.startsWith("/en") ? "en" : "mn";
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const scrolledX = useScrollPosition();
+
+  console.log(scrolledX);
 
   const MenuLink = ({
     header,
@@ -99,63 +103,75 @@ const Header = () => {
   return (
     <>
       <header className="fixed top-0 right-0 w-full backdrop-blur-md z-20 bg-black/30">
-        <div className="bg-gray-900 md:flex items-center justify-around px-20 py-[18px] w-full hidden">
-          <Image
-            className="object-cover h-[50]"
-            src="/images/img_download1.png"
-            alt="downloadOne"
-            width={150}
-            height={150}
-          />
-          <div className="flex flex-row items-center justify-center gap-2">
+        <div
+          className={cn(
+            "transition-all duration-300 ease-in-out ",
+            scrolledX > 0 ? "h-0" : "h-[100px]"
+          )}
+        >
+          <div
+            className={cn(
+              "bg-gray-900 md:flex items-center justify-around px-20 py-[18px] w-full hidden absolute right-0 transition-all duration-300 ease-in-out",
+              scrolledX > 0 ? "-top-[100px]" : "top-0"
+            )}
+          >
             <Image
-              className="h-[63px]"
-              src="/images/img_close.svg"
-              alt="close"
-              width={80}
-              height={80}
+              className="object-cover h-[50]"
+              src="/images/img_download1.png"
+              alt="downloadOne"
+              width={150}
+              height={150}
             />
-            <p className="leading-[135.02%] text-base text-white">
-              <>
-                Даваа - Бямба 9.00 - 18.00
-                <br />
-                Ням амарна
-              </>
-            </p>
-          </div>
-          <div className="flex flex-row items-center justify-center gap-3.5">
-            <Image
-              className="h-[63px]"
-              src="/images/img_lock.svg"
-              alt="close"
-              width={80}
-              height={80}
-            />
-            <p className="leading-[135.02%] text-base text-white">
-              <>
-                И-мэйл
-                <br />
-                contact@logistics.com
-              </>
-            </p>
-          </div>
-          <div className="flex flex-row items-center justify-center gap-3.5">
-            <Button className="border border-[#233651] border-solid flex h-[63px] items-center justify-center rounded-full w-[63px] bg-[#101b55]">
+            <div className="flex flex-row items-center justify-center gap-2">
               <Image
-                className="h-[20px]"
-                src="/images/img_call.svg"
+                className="h-[63px]"
+                src="/images/img_close.svg"
                 alt="close"
                 width={80}
                 height={80}
               />
-            </Button>
-            <p className="leading-[135.02%] text-base text-white">
-              <>
-                Утасны дугаар
-                <br />
-                +976 77110707
-              </>
-            </p>
+              <p className="leading-[135.02%] text-base text-white">
+                <>
+                  Даваа - Бямба 9.00 - 18.00
+                  <br />
+                  Ням амарна
+                </>
+              </p>
+            </div>
+            <div className="flex flex-row items-center justify-center gap-3.5">
+              <Image
+                className="h-[63px]"
+                src="/images/img_lock.svg"
+                alt="close"
+                width={80}
+                height={80}
+              />
+              <p className="leading-[135.02%] text-base text-white">
+                <>
+                  И-мэйл
+                  <br />
+                  contact@logistics.com
+                </>
+              </p>
+            </div>
+            <div className="flex flex-row items-center justify-center gap-3.5">
+              <Button className="border border-[#233651] border-solid flex h-[63px] items-center justify-center rounded-full w-[63px] bg-[#101b55]">
+                <Image
+                  className="h-[20px]"
+                  src="/images/img_call.svg"
+                  alt="close"
+                  width={80}
+                  height={80}
+                />
+              </Button>
+              <p className="leading-[135.02%] text-base text-white">
+                <>
+                  Утасны дугаар
+                  <br />
+                  +976 77110707
+                </>
+              </p>
+            </div>
           </div>
         </div>
 

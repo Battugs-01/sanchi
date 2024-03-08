@@ -58,27 +58,21 @@ const config = {
         },
       },
       keyframes: {
-        typewriter: {
-          to: {
-            left: "100%",
-          },
-        },
-
-        blink: {
+        typing: {
           "0%": {
-            opacity: "0",
-          },
-          "0.1%": {
-            opacity: "1",
-          },
-          "50%": {
-            opacity: "1",
-          },
-          "50.1%": {
-            opacity: "0",
+            width: "0%",
+            visibility: "hidden",
           },
           "100%": {
-            opacity: "0",
+            width: "100%",
+          },
+        },
+        blink: {
+          "50%": {
+            borderColor: "transparent",
+          },
+          "100%": {
+            borderColor: "white",
           },
         },
         "accordion-down": {
@@ -112,6 +106,7 @@ const config = {
           "typewriter 2s steps(11) forwards, blink 1s steps(11) infinite 2s",
         ["infinite-slider"]: "infiniteSlider 20s linear infinite",
         ["infinite-slider2"]: "infiniteSlider2 20s linear infinite",
+        typing: "typing 2s steps(20) alternate, blink .7s infinite",
       },
       boxShadow: {
         bs2: "0px -1px  1px 0px #233651",
