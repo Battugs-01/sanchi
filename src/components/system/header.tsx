@@ -27,6 +27,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
+import { Button } from "../ui/button";
+import { Img } from "../Img";
+import { Line } from "./Line";
 
 const Header = () => {
   const currentPath = usePathname();
@@ -58,9 +61,12 @@ const Header = () => {
         }
         className=" border-b border-b-transparent hover:border-b-white transition-all duration-300 ease-in-out"
       >
-        <p className={cn("text-white text-lg", className)}>
-          {getTranslation(currentLocale, header.tag)}
-        </p>
+        <div className="flex items-center gap-3">
+          <p className={cn("text-white text-lg", className)}>
+            {getTranslation(currentLocale, header.tag)}
+          </p>
+          <Line className="bg-[#ffffff7f] h-4 rotate-0 w-px mt-1" />
+        </div>
       </Link>
     );
   };
@@ -71,8 +77,11 @@ const Header = () => {
     }
     return (
       <HoverCard openDelay={0} closeDelay={100}>
-        <HoverCardTrigger className="text-white border-b border-b-transparent hover:border-b-white transition-all duration-300 ease-in-out">
-          {getTranslation(currentLocale, header.tag)}
+        <HoverCardTrigger className="text-white border-b border-b-transparent hover:border-b-white transition-all duration-300 ease-in-out text-lg">
+          <div className="flex justify-center items-center gap-3">
+            {getTranslation(currentLocale, header.tag)}
+            <Line className="bg-[#ffffff7f] h-4 rotate-0 w-px mt-1" />
+          </div>
         </HoverCardTrigger>
         <HoverCardContent className="">
           {header.children.map((child: any) => (
@@ -88,97 +97,159 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 right-0 w-full bg-black/30 backdrop-blur-md z-20">
-      <div className="container mx-auto py-4 flex items-center justify-between gap-8">
-        <div className="text-white">
-          <Link
-            href={{
-              pathname: "/",
-              query: { section: "hero" },
-            }}
-          >
+    <>
+      <header className="fixed top-0 right-0 w-full backdrop-blur-md z-20 bg-black/30">
+        <div className="bg-gray-900 md:flex items-center justify-around px-20 py-[18px] w-full hidden">
+          <Image
+            className="object-cover h-[50]"
+            src="/images/img_download1.png"
+            alt="downloadOne"
+            width={150}
+            height={150}
+          />
+          <div className="flex flex-row items-center justify-center gap-2">
             <Image
-              src="/images/logo.png"
-              alt="logo"
-              width={85}
-              height={85}
-              className="object-cover w-full h-full bg bg-right"
-              priority
+              className="h-[63px]"
+              src="/images/img_close.svg"
+              alt="close"
+              width={80}
+              height={80}
             />
-          </Link>
-        </div>
-        <div className="md:flex justify-between items-center hidden w-full">
-          <div className=" flex items-center gap-6">
-            {HEADERS.map((header) => (
-              <MenuItem key={`header-${header.tag}`} header={header} />
-            ))}
+            <p className="leading-[135.02%] text-base text-white">
+              <>
+                Даваа - Бямба 9.00 - 18.00
+                <br />
+                Ням амарна
+              </>
+            </p>
           </div>
-          <div className="flex items-center gap-2">
-            {SOCIAL_LINKS.map((link) => (
-              <Link key={`social-${link.title}`} href={link.href}>
-                <div className=" aspect-square flex justify-center items-center bg-white bg-opacity-20 p-2 rounded-md text-white">
-                  {link.icon === "Facebook" ? (
-                    <Image
-                      src="/svg/img_facebook.svg"
-                      alt="facebook"
-                      width={50}
-                      height={50}
-                      className="object-cover w-full h-full p-0.5"
-                      priority
-                    />
-                  ) : (
-                    <Image
-                      src="/svg/img_link.svg"
-                      alt="linkeden"
-                      width={70}
-                      height={70}
-                      className="object-cover w-full h-full p-0.5"
-                      priority
-                    />
-                  )}
-                </div>
-              </Link>
-            ))}
-            <Select
-              value={currentLocale}
-              onValueChange={(value) => {
-                value === "mn" ? router.push(`/`) : router.push(`/en`);
+          <div className="flex flex-row items-center justify-center gap-3.5">
+            <Image
+              className="h-[63px]"
+              src="/images/img_lock.svg"
+              alt="close"
+              width={80}
+              height={80}
+            />
+            <p className="leading-[135.02%] text-base text-white">
+              <>
+                И-мэйл
+                <br />
+                contact@logistics.com
+              </>
+            </p>
+          </div>
+          <div className="flex flex-row items-center justify-center gap-3.5">
+            <Button className="border border-[#233651] border-solid flex h-[63px] items-center justify-center rounded-full w-[63px] bg-[#101b55]">
+              <Image
+                className="h-[20px]"
+                src="/images/img_call.svg"
+                alt="close"
+                width={80}
+                height={80}
+              />
+            </Button>
+            <p className="leading-[135.02%] text-base text-white">
+              <>
+                Утасны дугаар
+                <br />
+                +976 77110707
+              </>
+            </p>
+          </div>
+        </div>
+
+        <div className="container mx-auto py-4 flex items-center justify-between gap-8   ">
+          <div className="text-white">
+            <Link
+              href={{
+                pathname: "/",
+                query: { section: "hero" },
               }}
             >
-              <SelectTrigger className="w-[80px]">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent className="w-[60px]">
-                <SelectItem value="mn" className="w-full">
-                  <Image
-                    src="/svg/mn.svg"
-                    width={30}
-                    height={20}
-                    alt="Mongolian Flag"
-                  />
-                </SelectItem>
-                <SelectItem value="en">
-                  <Image
-                    src="/svg/en.svg"
-                    width={30}
-                    height={20}
-                    alt="English Flag"
-                  />
-                </SelectItem>
-              </SelectContent>
-            </Select>
+              <Image
+                src="/images/logo.png"
+                alt="logo"
+                width={85}
+                height={85}
+                className="object-cover w-full h-full bg bg-right block md:hidden"
+                priority
+              />
+            </Link>
+          </div>
+          <div className="md:flex justify-between items-center hidden w-full">
+            <div className=" flex items-center gap-6">
+              {HEADERS.map((header) => (
+                <MenuItem key={`header-${header.tag}`} header={header} />
+              ))}
+            </div>
+            <div className="flex items-center gap-2">
+              {SOCIAL_LINKS.map((link) => (
+                <Link key={`social-${link.title}`} href={link.href}>
+                  <div className=" aspect-square flex justify-center items-center bg-white bg-opacity-20 p-2 rounded-md text-white">
+                    {link.icon === "Facebook" ? (
+                      <Image
+                        src="/svg/img_facebook.svg"
+                        alt="facebook"
+                        width={50}
+                        height={50}
+                        className="object-cover w-full h-full p-0.5"
+                        priority
+                      />
+                    ) : (
+                      <Image
+                        src="/svg/img_link.svg"
+                        alt="linkeden"
+                        width={70}
+                        height={70}
+                        className="object-cover w-full h-full p-0.5"
+                        priority
+                      />
+                    )}
+                  </div>
+                </Link>
+              ))}
+              <Select
+                value={currentLocale}
+                onValueChange={(value) => {
+                  value === "mn" ? router.push(`/`) : router.push(`/en`);
+                }}
+              >
+                <SelectTrigger className="w-[80px]">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent className="w-[60px]">
+                  <SelectItem value="mn" className="w-full">
+                    <Image
+                      src="/svg/mn.svg"
+                      width={30}
+                      height={20}
+                      alt="Mongolian Flag"
+                    />
+                  </SelectItem>
+                  <SelectItem value="en">
+                    <Image
+                      src="/svg/en.svg"
+                      width={30}
+                      height={20}
+                      alt="English Flag"
+                    />
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+          <div className=" block md:hidden">
+            <HamburerMenu
+              currentLocale={currentLocale}
+              router={router}
+              open={isMenuOpen}
+              onOpenChange={(open) => setIsMenuOpen(open)}
+            />
           </div>
         </div>
-        <div className=" block md:hidden">
-          <HamburerMenu
-            currentLocale={currentLocale}
-            router={router}
-            open={isMenuOpen}
-            onOpenChange={(open) => setIsMenuOpen(open)}
-          />
-        </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 };
 

@@ -16,6 +16,7 @@ const translationData = {
     services2: "Гаалийн терминал",
     services3: "Гаалийн зуучлал",
     detail: "Дэлгэрэнгүй",
+    a: "ТЭЭВЭР ЗУУЧЛАЛЫН ЦОГЦ ШИЙДЭЛ",
   },
   en: {
     home: "Home",
@@ -30,5 +31,6 @@ const translationData = {
     services1: "Global Logistic Services",
     services2: "Customs terminal managment",
     services3: "Customs intermediation service",
+    a: "INTEGRATED LOGISTICS SOLUTIONS",
   },
 };

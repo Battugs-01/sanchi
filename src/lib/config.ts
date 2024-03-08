@@ -100,17 +100,21 @@ export const Services2Data = [
     alt: "1",
   },
   {
-    src: "/images/galt2.jpg",
-    alt: "2",
+    src: "/images/galt.jpg",
+    alt: "0",
+  },
+  {
+    src: "/images/galz4.jpg",
+    alt: "3",
   },
 ];
 export const Services3Data = [
   {
-    src: "/images/galz3.jpg",
+    src: "/images/galz.jpg",
     alt: "1",
   },
   {
-    src: "/images/galz4.jpg",
+    src: "/images/galz2.jpg",
     alt: "2",
   },
 ];

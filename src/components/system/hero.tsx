@@ -6,16 +6,6 @@ import SlideUpWhenVisible from "./animate_when_visible";
 import { Line } from "./Line";
 
 const Hero = () => {
-  // const handleDownload = () => {
-  //   const pdfUrl = "../../assets/tanil.pdf";
-  //   const link = document.createElement("a");
-  //   link.href = pdfUrl;
-  //   link.download = "sample.pdf";
-  //   document.body.appendChild(link);
-  //   link.click();
-  //   document.body.removeChild(link);
-  // };
-
   const handleClick = async () => {
     const response = await fetch("/api/file");
 
@@ -43,7 +33,7 @@ const Hero = () => {
         placeholder="blur"
         blurDataURL="/images/hero_blurred.webp"
       />
-      <div className="w-full h-full absolute top-0 right-0 z-[10] flex items-center justify-center">
+      <div className="w-full h-full absolute xl:top-20 xl:right-20 top-0 right-0 z-[10] flex items-center justify-center">
         <div className="z-10 container mx-auto flex justify-start ">
           <div className=" rounded-lg backdrop-blur-md bg-black/20 border-gray-500 border flex flex-col gap-4 p-10 text-white w-[100%] md:w-[70%] lg:w-[50%]">
             <div className="flex flex-row items-center justify-start w-[24%] md:w-full">
@@ -54,8 +44,8 @@ const Hero = () => {
             </div>
             <SlideUpWhenVisible from="top">
               <h1 className="font-bold text-4xl md:text-6xl">
-                ТЭЭВЭР ЗУУЧЛАЛЫН ЦОГЦ{" "}
-                <span className=" text-red-600">ШИЙДЭЛ</span>
+                ТЭЭВЭР ЗУУЧЛАЛЫН ЦОГЦ
+                <span className=" text-red-600 ml-1">ШИЙДЭЛ</span>
               </h1>
             </SlideUpWhenVisible>
             <SlideUpWhenVisible from="top">

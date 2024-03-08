@@ -40,10 +40,9 @@ const InfiniteSlider = ({
         {logos.map((card, index) => (
           <div
             key={`hgf-${index}`}
-            className="rounded-full shadow-md bg-white flex items-center gap-2 px-4 py-2 min-w-[200px] min-h-[50px] justify-center"
+            className="rounded-full shadow-md bg-white flex items-center gap-2 px-2 py-2 min-w-[200px] min-h-[50px] justify-center"
           >
-            <Image src={card.src} alt={card.alt} width={40} height={40} />
-            <p>{card.title}</p>
+            <Image src={card.src} alt={card.alt} width={70} height={70} />
           </div>
         ))}
         {logos.map((card, index) => (
@@ -51,8 +50,7 @@ const InfiniteSlider = ({
             key={`hgf-${index}`}
             className="rounded-full shadow-md bg-white flex items-center gap-2 px-4 py-2 min-w-[200px] min-h-[50px] justify-center"
           >
-            <Image src={card.src} alt={card.alt} width={40} height={40} />
-            <p>{card.title}</p>
+            <Image src={card.src} alt={card.alt} width={70} height={70} />
           </div>
         ))}
         {logos.map((card, index) => (
@@ -60,8 +58,7 @@ const InfiniteSlider = ({
             key={`hgf-${index}`}
             className="rounded-full shadow-md bg-white flex items-center gap-2 px-4 py-2 min-w-[200px] min-h-[50px] justify-center"
           >
-            <Image src={card.src} alt={card.alt} width={40} height={40} />
-            <p>{card.title}</p>
+            <Image src={card.src} alt={card.alt} width={70} height={70} />
           </div>
         ))}
         {logos.map((card, index) => (
@@ -69,8 +66,7 @@ const InfiniteSlider = ({
             key={`hgf-${index}`}
             className="rounded-full shadow-md bg-white flex items-center gap-2 px-4 py-2 w-[200px] h-[50px] justify-center"
           >
-            <Image src={card.src} alt={card.alt} width={40} height={40} />
-            <p>{card.title}</p>
+            <Image src={card.src} alt={card.alt} width={70} height={70} />
           </div>
         ))}
       </div>

@@ -180,7 +180,7 @@ const Services = () => {
                           alt={item.alt}
                           width={1280}
                           height={1080}
-                          className="rounded object-cover w-full h-full bg bg-right z-[2] "
+                          className="rounded object-cover w-full h-[500px] bg bg-right z-[2] "
                           priority
                         />
                       </CarouselItem>

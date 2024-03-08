@@ -3,6 +3,7 @@ import { Didact_Gothic } from "next/font/google";
 import "./globals.css";
 import { cx } from "class-variance-authority";
 import Header from "@/components/system/header";
+import CustomHeader from "@/components/system/customHeader";
 
 const inter = Didact_Gothic({
   subsets: ["latin", "cyrillic"],
@@ -23,7 +24,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cx(inter.className, "relative overflow-x-hidden")}>
-        <Header />
+        <>
+          <Header />
+        </>
         {children}
       </body>
     </html>

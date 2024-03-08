@@ -11,7 +11,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 const Data1 = () => {
   return (
     <Dialog>
@@ -27,7 +27,16 @@ const Data1 = () => {
             Олон улсын тээвэр зуучлал
           </DialogTitle>
         </DialogHeader>
-        <div> End Heseg bn </div>
+        <Tabs defaultValue="account" className="w-[400px]">
+          <TabsList>
+            <TabsTrigger value="account">Account</TabsTrigger>
+            <TabsTrigger value="password">Password</TabsTrigger>
+          </TabsList>
+          <TabsContent value="account">
+            Make changes to your account here.
+          </TabsContent>
+          <TabsContent value="password">Change your password here.</TabsContent>
+        </Tabs>
         <DialogFooter className="sm:justify-start">
           <DialogClose asChild>
             <Button
