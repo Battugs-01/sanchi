@@ -21,7 +21,7 @@ const Data1 = () => {
           <ArrowRight className="h-4 w-4" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="w-full p-2">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold">
             Олон улсын тээвэр зуучлал
@@ -30,6 +30,10 @@ const Data1 = () => {
         <Tabs defaultValue="account" className="w-[400px]">
           <TabsList>
             <TabsTrigger value="account">Account</TabsTrigger>
+            <TabsTrigger value="password">Password</TabsTrigger>
+            <TabsTrigger value="password">PasswordPassword</TabsTrigger>
+            <TabsTrigger value="password">PasswordPassword</TabsTrigger>
+            <TabsTrigger value="password">Password</TabsTrigger>
             <TabsTrigger value="password">Password</TabsTrigger>
           </TabsList>
           <TabsContent value="account">

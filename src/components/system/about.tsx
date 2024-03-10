@@ -1,10 +1,15 @@
 "use client";
 
+import { getTranslation } from "@/locale/common";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import SlideUpWhenVisible from "./animate_when_visible";
 import { CustomButton } from "./button";
 
 const About = () => {
+  const searchParams = useSearchParams();
+
+  const currentLocale = searchParams?.get("locale") || "mn";
   return (
     <div className="w-full min-h-screen relative md:pt-48 pt-24" id="make">
       <div className="w-full h-full flex bg-[#F2F2F2] absolute top-0 left-0 z-0">
@@ -35,7 +40,10 @@ const About = () => {
               <p className="text-xl md:text-2xl lg:text-4xl font-semibold ">
                 10
               </p>
-              <p className="text-lg font-semibold">жилийн ажлын туршлага</p>
+              <p className="text-lg font-semibold">
+                {" "}
+                {getTranslation(currentLocale, "company_expereince")}
+              </p>
             </div>
           </SlideUpWhenVisible>
           <SlideUpWhenVisible
@@ -44,18 +52,15 @@ const About = () => {
           >
             <div className="space-y-7">
               <h2 className="uppercase text-3xl font-semibold text-gray-900_01">
-                Бид юу хийдэг вэ?
+                {getTranslation(currentLocale, "company_what")}
               </h2>
               <p className="text-blue_gray-600 text-xl">
-                Бид бизнес эрхлэгчдийн гадаад худалдааны тээвэрлэлтийг зохион
-                байгуулж, ОУ-ын стандарт, МУ-ын хууль тогтоомжийн хүрээнд
-                хөнгөвчлөх, зуучлах цогц үйлчилгээг үзүүлэгч үндэсний компани
-                юм.
+                {getTranslation(currentLocale, "company_what1")}
               </p>
             </div>
             <div className="space-y-7 mt-8  flex-col justify-center items-center ">
               <p className="uppercase text-3xl font-semibold text-gray-900_01">
-                БИдний давуу тал
+                {getTranslation(currentLocale, "company_different")}
               </p>
               <div className="flex gap-3 space-x-4 pb-4">
                 <CustomButton
@@ -72,7 +77,7 @@ const About = () => {
                   />
                 </CustomButton>
                 <p className="text-gray-900_01 text-xl flex-1">
-                  Хөрөнгө оруулалтын чадавхитай үндэсний компани
+                  {getTranslation(currentLocale, "company_different1")}
                 </p>
               </div>
               <div className="flex gap-3 space-x-4 ">
@@ -90,8 +95,7 @@ const About = () => {
                   />
                 </CustomButton>
                 <p className="text-gray-900_01 text-xl flex-1">
-                  Харилцагчийн тав тухыг хангасан өөрийн эзэмшлийн терминалын
-                  талбай
+                  {getTranslation(currentLocale, "company_different2")}
                 </p>
               </div>
               <div className="flex gap-3 space-x-4">
@@ -109,7 +113,7 @@ const About = () => {
                   />
                 </CustomButton>
                 <p className="text-gray-900_01 text-xl flex-1">
-                  Терминалын үйлчилгээний мэргэшсэн, чадварлаг ажилтнууд
+                  {getTranslation(currentLocale, "company_different3")}
                 </p>
               </div>
             </div>

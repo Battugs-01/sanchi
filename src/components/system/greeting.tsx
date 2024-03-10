@@ -3,6 +3,8 @@
 import { CompanyCardData } from "@/lib/config";
 import Image from "next/image";
 import SlideUpWhenVisible from "./animate_when_visible";
+import { getTranslation } from "@/locale/common";
+import { useSearchParams } from "next/navigation";
 
 const GreetingPage = () => {
   return (
@@ -83,13 +85,16 @@ const CompanyCard = ({
   description: string;
   src: string;
 }) => {
+  const searchParams = useSearchParams();
+
+  const currentLocale = searchParams?.get("locale") || "mn";
   return (
     <div className="flex flex-col gap-8 bg-gray hover:bg-gradient1 rounded-md p-4 hover:drop-shadow-lg transition-all  hover:-translate-y-2 hover:text-white z-10">
       <div className="relative rounded-full bg-gradient w-fit p-2 aspect-square flex items-center justify-center">
         <Image src={src} alt="about" width={38} height={38} />
       </div>
-      <h3 className="text-lg">{title}</h3>
-      <p className="text-lg">{description}</p>
+      <h3 className="text-lg">{getTranslation(currentLocale, title)}</h3>
+      <p className="text-lg">{getTranslation(currentLocale, description)}</p>
     </div>
   );
 };

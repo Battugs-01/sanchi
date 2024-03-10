@@ -123,7 +123,7 @@ export const ManagerNamesData = [
   {
     src: "/images/img_bg.png",
     alt: "bg",
-    position: "Тээврийн хэлтсийн дарга",
+    position: "boss",
     name: "Ц.Урандэлгэр",
     email: "urandelger@til.mn",
     phone: " 94990196",
@@ -131,7 +131,7 @@ export const ManagerNamesData = [
   {
     src: "/images/img_bg.png",
     alt: "bg",
-    position: "Тээврийн менежер",
+    position: "meneger",
     name: "Б.Эрдэнэхүлэг",
     email: "erdenekhuleg.b@til.mn",
     phone: "94990173",
@@ -139,7 +139,7 @@ export const ManagerNamesData = [
   {
     src: "/images/img_bg.png",
     alt: "bg",
-    position: "Тээврийн менежер",
+    position: "meneger",
     name: "Г.Донжийханд",
     email: "Donjiikhand.g@til.mn",
     phone: "94990165",
@@ -147,7 +147,7 @@ export const ManagerNamesData = [
   {
     src: "/images/img_bg.png",
     alt: "bg",
-    position: "Тээврийн менежер",
+    position: "meneger",
     name: "Б.Саруулзаяа",
     email: "saruulzaya.b@til.mn",
     phone: "94990174",
@@ -155,7 +155,7 @@ export const ManagerNamesData = [
   {
     src: "/images/img_bg.png",
     alt: "bg",
-    position: "Тээврийн менежер",
+    position: "meneger",
     name: "Б.Оргил",
     email: "orgil.b@til.mn",
     phone: "94990182",
@@ -163,7 +163,7 @@ export const ManagerNamesData = [
   {
     src: "/images/img_bg.png",
     alt: "bg",
-    position: "Тээврийн менежер",
+    position: "meneger",
     name: "Э.Отгонбаяр",
     email: "otgonbayar.e@til.mn",
     phone: " 94990183",
@@ -171,7 +171,7 @@ export const ManagerNamesData = [
   {
     src: "/images/img_bg.png",
     alt: "bg",
-    position: "Тээврийн менежер",
+    position: "meneger",
     name: "Ц.Санжид",
     email: "sanjid.ts@til.mn",
     phone: "94990186",
@@ -179,7 +179,7 @@ export const ManagerNamesData = [
   {
     src: "/images/img_bg.png",
     alt: "bg",
-    position: "Дарга",
+    position: "boss1",
     name: "Б.Түвшинзаяа",
     email: "tuvshinzaya@til.mn",
     phone: "94990172",
@@ -188,21 +188,18 @@ export const ManagerNamesData = [
 
 export const CompanyCardData = [
   {
-    title: "Алсын хараа",
-    description:
-      "Инноваци шингээсэн, дэлхийн энтэй тээвэр логистикийн төгс шийдлийг бизнес бүрт хүргэнэ.",
+    title: "our_vision",
+    description: "our_vision1",
     src: "/svg/shoot.svg",
   },
   {
-    title: "ЭРХЭМ ЗОРИЛГО",
-    description:
-      "Тээвэр логистикийн салбарт олон улсын түвшинд өрсөлдөхүйц цогц үйлчилгээ нэвтрүүлсэн компани байж харилцагчдынхаа бизнесийн амжилтад хувь нэмрээ оруулна.",
+    title: "our_mission",
+    description: "our_mission1",
     src: "/svg/award.svg",
   },
   {
-    title: "ҮНЭТ ЗҮЙЛС",
-    description:
-      "Өөриймсөг сэтгэлгээ, үнэнч шударга зарчим Бие биенээ хүндэтгэж, ил тод байдлыг эрхэмлэж, аливаад хариуцлагатай, сэтгэл гарган, зөв хандлагаар уялдаа холбоотой хамтран ажиллах, гар нийлсэн бүтээлч хамт олон",
+    title: "our_values",
+    description: "our_values1",
     src: "/svg/heart-flat-icon.svg",
   },
 ];
@@ -211,22 +208,22 @@ export const ServiceImages = [
   {
     src: "/images/work1.jpg",
     alt: "work1",
-    title: "Манлайлал",
+    title: "leadership",
   },
   {
     src: "/images/work2.jpg",
     alt: "work2",
-    title: "Ур чадвар",
+    title: "skill",
   },
   {
     src: "/images/work18.jpg",
     alt: "work18",
-    title: "Хамт олон",
+    title: "team",
   },
   {
     src: "/images/work4.jpg",
     alt: "work4",
-    title: "Сэтгэл зүрх",
+    title: "hearth",
   },
 ];
 
@@ -251,35 +248,31 @@ export const ServicesData = [
 export const RegionsData = [
   {
     flagPath: "/images/cn.png",
-    title: "БНХАУ-ААС",
-    description:
-      "Хятад улсын бүх хотуудаас өөрийн агентаар дамжуулан Эрээн хотын агуулахад татан цуглуулж Улаанбаатар хот хүртэл тээвэрлэх түүвэр чингэлгийн тэээвэр",
-    day: "7 хоног тутамд",
-    daytext: "Энгийн чингэлэг",
+    title: "china",
+    description: "china_description",
+    day: "seven_days",
+    daytext: "simple_container",
   },
   {
     flagPath: "/svg/europe.svg",
-    title: "ЕВРОПЫН УЛС, ХОТУУДААС",
-    description:
-      "Европын улс, хотуудаас өөрийн төлөөлөгчөөр дамжуулан Бэрлин хотын агуулаха дтатан цуглуулж Улаанбаатар хот хүртэл тээвэрлэх түүвэр чингэлгийн тэээвэр",
-    day: "7 хоногт 2-3 удаа",
-    daytext: "ТИР машины авто тээвэр",
+    title: "ewrope",
+    description: "ewrope_description",
+    day: "seven_days3",
+    daytext: "tir_truck",
   },
   {
     flagPath: "/svg/turkey.svg",
-    title: "БНТУ-ААС",
-    description:
-      "Турк улсын Истанбул дахь өөрийн агентын агуулахад татан цуглуулж чингэлгээр болон ТИР автомашинаар тээвэрлэх цуглуулбар ачааны тээвэр",
+    title: "turk",
+    description: "turk_description",
   },
   {
     flagPath: "/svg/korea.svg",
-    title: "БНСУ-аас",
-    description:
-      "Солонгос улсын Инчон боомтоос ачигдан Улаанбаатар хотод ирэх түүвэр чингэлгийн тээвэр",
-    day: "7 хоног тутамд",
-    day2: "14 Хоног тутамд",
-    daytext: "Энгийн чингэлэг",
-    daytext2: "Темп/Тохируулгатай чингэлэг",
+    title: "korea",
+    description: "korea_description",
+    day: "seven_days",
+    day2: "fourten_days",
+    daytext: "simple_container",
+    daytext2: "day_text2",
   },
 ];
 
@@ -628,25 +621,22 @@ export const PartnersLogo = [
 
 export const HumanResourcesData = [
   {
-    title:
-      "Байгууллагын дотоод журам, хөдөлмөрийн гэрээг нийт ажилтнууддаа нээлттэй танилцуулж, хөдөлмөрийн харилцааны холбогдох хуулиудыг чанд баримтлах",
+    title: "human_res_check_1",
   },
   {
-    title:
-      "Бусад олон төрлийн хөнгөлөлт тусламжуудыг эдлэх өргөн боломж байнга нээлттэй байдаг.",
+    title: "human_res_check_2",
   },
   {
-    title:
-      "Эерэг хандлагатай хамт олныг бүрдүүлэн, ажил мэргэжлээрээ өсөж хөгжих боломжийг олгож, чадварлаг боловсон хүчнээ дотоод эх үүсвэрээс дэвшүүлэн ажиллуулах замаар хүний нөөцийг байнга хангах",
+    title: "human_res_check_3",
+  },
+
+  {
+    title: "human_res_check_5",
   },
   {
-    title:
-      "Ажлын гүйцэтгэлийн зөв шудрага үнэлгээ, цалин, шагнал урамшуулал өгөх",
+    title: "human_res_check_6",
   },
   {
-    title: "Даатгалын цогц үйлчилгээнд хамруулах",
-  },
-  {
-    title: "Хангамж, тэтгэмж, тусламжууд олгох",
+    title: "human_res_check_7",
   },
 ];

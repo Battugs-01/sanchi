@@ -2,8 +2,14 @@ import Image from "next/image";
 import React from "react";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { getTranslation } from "@/locale/common";
+import { useSearchParams } from "next/navigation";
 
 const Contact: React.FC = () => {
+  const searchParams = useSearchParams();
+
+  const currentLocale = searchParams?.get("locale") || "mn";
   return (
     <div id="contact">
       <div className="bg-gray-900_02 flex flex-col font-inter items-start justify-start md:px-10 px-20 sm:px-5 w-full">
@@ -18,8 +24,7 @@ const Contact: React.FC = () => {
               priority
             />
             <p className="leading-[24.00px] max-w-[500px] text-base text-blue_gray-300">
-              Монгол улс, Улаанбаатар хот, Баянгол дүүрэг, 4-р хороо, Үйлдвэрийн
-              төвийн бүс – 1, Ажилчны гудамж 16010, Ти Ай Бизнес Центр
+              {getTranslation(currentLocale, "location")}
             </p>
           </div>
           <div className="flex flex-col gap-3 items-start justify-start w-auto text-start">
@@ -39,7 +44,7 @@ const Contact: React.FC = () => {
                 </Button>
               </Link>
               <p className="text-base text-blue_gray-300_01 w-auto">
-                Тээврийн газар: 7018 9889 (1)
+                {getTranslation(currentLocale, "trans_area")}: 7018 9889 (1)
               </p>
             </div>
             <div className="flex flex-row gap-3.5 items-center justify-start w-auto">
@@ -58,7 +63,7 @@ const Contact: React.FC = () => {
                 </Button>
               </Link>
               <p className="text-base text-blue_gray-300_01 w-auto">
-                Терминалын газар: 7018 9889 (2)
+                {getTranslation(currentLocale, "terminal_area")}: 7018 9889 (2)
               </p>
             </div>
             <div className="flex flex-row gap-3.5 items-center justify-start w-auto">
@@ -77,7 +82,7 @@ const Contact: React.FC = () => {
                 </Button>
               </Link>
               <p className="text-base text-blue_gray-300_01 w-auto">
-                И-Мэйл хаяг: office@til.mn
+                {getTranslation(currentLocale, "email")} : office@til.mn
               </p>
             </div>
           </div>

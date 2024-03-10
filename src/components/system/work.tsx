@@ -1,10 +1,15 @@
 "use client";
 
 import { ServiceImages } from "@/lib/config";
+import { getTranslation } from "@/locale/common";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import SlideUpWhenVisible from "./animate_when_visible";
 
 const Work = () => {
+  const searchParams = useSearchParams();
+
+  const currentLocale = searchParams?.get("locale") || "mn";
   return (
     <div className="w-full min-h-[645px] relative">
       <div
@@ -15,12 +20,11 @@ const Work = () => {
         <div className="container mx-auto text-auto pt-48">
           <SlideUpWhenVisible from="top">
             <div className="flex-col flex justify-center items-center max-w-[60%] mx-auto text-center">
-              <div className="p-2 backdrop-blur-md bg-white/10 rounded-md text-white ">
+              {/* <div className="p-2 backdrop-blur-md bg-white/10 rounded-md text-white ">
                 Бид хэрхэн ажилдаг вэ?
-              </div>
+              </div> */}
               <p className="font-bold text-4xl text-white z-10">
-                Бид бүтээгдэхүүн & үйлчилгээгээ сэтгэл зүрхээ шингээж бүтээдэг
-                хамт олон
+                {getTranslation(currentLocale, "what_do_we_do")}
               </p>
             </div>
           </SlideUpWhenVisible>
@@ -39,7 +43,7 @@ const Work = () => {
                     className=" object-cover w-full h-full bg bg-right z-[2] group-hover:scale-110 transition-transform group-hover:shadow-lg rounded-md"
                   />
                   <div className=" text-2xl text-white absolute top-0 right-0 w-full h-full opacity-0 group-hover:opacity-100 bg-[#101828]/60 transition-opacity duration-300 flex justify-center items-center">
-                    {item?.title}
+                    {getTranslation(currentLocale, item.title)}
                   </div>
                 </div>
               ))}

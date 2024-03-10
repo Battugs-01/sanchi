@@ -23,8 +23,13 @@ import SlideUpWhenVisible from "./animate_when_visible";
 import { Button } from "../ui/button";
 import { CustomButton } from "./button";
 import { BadgeCheck, PlusSquare } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import { getTranslation } from "@/locale/common";
 
 const HumanResources = () => {
+  const searchParams = useSearchParams();
+
+  const currentLocale = searchParams?.get("locale") || "mn";
   const handleClick = async () => {
     const response = await fetch("/api/doc");
 
@@ -43,15 +48,14 @@ const HumanResources = () => {
   return (
     <div className="bg-[#F9FAFB]" id="humanresources">
       <div className="relative container mx-auto py-28 text-center  ">
-        <p className="font-bold text-4xl uppercase">
-          ХҮНИЙ НӨӨЦИЙН <span className=" font-medium">БОДЛОГО</span>
+        <p className="font-bold text-4xl uppercase mt-20">
+          {getTranslation(currentLocale, "human_res")}
+          <span className=" font-medium">
+            {getTranslation(currentLocale, "human_res_policy")}
+          </span>
         </p>
         <p className="font-medium text-xl text-[#475467] my-10">
-          Манай компаний хамгийн гол үнэт зүйл бол нарийн мэргэжлийн өндөр
-          боловсрол, ур чадвартай ажиллах хүч болох хүний нөөц мөн. Бид хүний
-          нөөцийн бодлогоороо компанийн эрхэм зорилго, алсын хараа, үйл
-          ажиллагааны стратеги төлөвлөгөөг хэрэгжүүлэх удирдлагын манлайллаар
-          хангаж, мэргэжлийн өндөр түвшинд хэрэгжүүлэх чадавхтай
+          {getTranslation(currentLocale, "human_res_title")}
         </p>
         <div className="grid grid-cols-2 gap-8 flex-col z-10 w-full">
           <SlideUpWhenVisible
@@ -78,7 +82,7 @@ const HumanResources = () => {
                     />
                   </CustomButton>
                   <p className="text-[#1D2939] text-lg  text-start">
-                    {item.title}
+                    {getTranslation(currentLocale, item.title)}
                   </p>
                 </div>
               ))}
@@ -151,7 +155,7 @@ const HumanResources = () => {
 
               <div className="flex flex-col gap-2 items-center justify-start max-w-3xl w-full">
                 <p className="text-center text-gray-900_02 text-3xl w-full font-bold">
-                  Нээлттэй ажлын байр
+                  {getTranslation(currentLocale, "open_job")}
                 </p>
                 <div className="h-[2px] bg-white w-full"></div>
                 <Collapsible className="mt-0 mb-0 pt-0 pb-0 ml-4">
@@ -236,8 +240,7 @@ const HumanResources = () => {
                 </Collapsible>
                 <div className="h-[2px] bg-white w-full"></div>
                 <p className="leading-[28.00px] max-w-3xl md:max-w-full text-blue_gray-700 text-center text-lg">
-                  Та нээлттэй ажлын байранд тавигдах шаардлагыг хангаж байна гэж
-                  үзвэл онлайн анкетаа office@til.mn хаягт хандан илгээнэ үү.
+                  {getTranslation(currentLocale, "resume")}
                 </p>
               </div>
 
@@ -246,7 +249,7 @@ const HumanResources = () => {
                   className="border border-indigo-A400 border-solid cursor-pointer font-semibold min-w-[136px] rounded-lg text-base text-center"
                   onClick={handleClick}
                 >
-                  Анкет татах
+                  {getTranslation(currentLocale, "pull_resumes")}
                 </Button>
               </div>
             </div>

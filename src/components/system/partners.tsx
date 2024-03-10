@@ -1,13 +1,23 @@
 import { PartnersLogo } from "@/lib/config";
 import { cn } from "@/lib/utils";
+import { getTranslation } from "@/locale/common";
 import Image from "next/image";
+import { usePathname, useSearchParams } from "next/navigation";
 
 const Partners = () => {
+  const currentPath = usePathname();
+
+  const searchParams = useSearchParams();
+
+  const currentLocale = searchParams?.get("locale") || "mn";
   return (
     <div className="bg-[#F9FAFB] overflow-hidden py-32">
       <div className="w-full text-center">
         <p className="pb-16 font-bold text-4xl uppercase">
-          Хамтрагч <span className=" font-medium">Байгууллагууд</span>
+          {getTranslation(currentLocale, "partners")}{" "}
+          <span className=" font-medium">
+            {getTranslation(currentLocale, "XXK")}
+          </span>
         </p>
       </div>
       <div className="space-y-16">

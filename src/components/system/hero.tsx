@@ -3,15 +3,14 @@
 import { Button } from "@/components/ui/button";
 import { getTranslation } from "@/locale/common";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { Line } from "./Line";
 import SlideUpWhenVisible from "./animate_when_visible";
 
 const Hero = () => {
-  const currentPath = usePathname();
+  const searchParams = useSearchParams();
 
-  const currentLocale =
-    currentPath && currentPath.startsWith("/en") ? "en" : "mn";
+  const currentLocale = searchParams?.get("locale") || "mn";
   const handleClick = async () => {
     const response = await fetch("/api/file");
 
@@ -39,7 +38,7 @@ const Hero = () => {
         placeholder="blur"
         blurDataURL="/images/hero_blurred.webp"
       />
-      <div className="w-full h-full absolute xl:top-20 xl:right-20 top-0 right-0 z-[10] flex items-center justify-center">
+      <div className="w-full h-full absolute xl:top-20 xl:right-20 top-5 right-5 z-[10] flex items-center justify-center">
         <div className="z-10 container mx-auto flex justify-start">
           <div className=" rounded-lg backdrop-blur-md bg-black/20 border-gray-500 border flex flex-col gap-4 p-10 text-white w-[100%] md:w-[70%] lg:w-[50%]">
             <div className="flex flex-row items-center justify-start w-[24%] md:w-full">
@@ -49,27 +48,34 @@ const Hero = () => {
               </SlideUpWhenVisible>
             </div>
             <h1 className="font-bold text-4xl md:text-6xl animate-typing overflow-hidden border-r-4 border-r-white">
-              ТЭЭВЭР ЗУУЧЛАЛЫН ЦОГЦ
-              <span className=" text-red-600 ml-1">ШИЙДЭЛ</span>
+              {getTranslation(currentLocale, "hero_title")}
+              <span className=" text-red-600 ml-1">
+                {getTranslation(currentLocale, "hero_title1")}
+              </span>
             </h1>
-
             <SlideUpWhenVisible from="top">
-              <div className=" text-justify">
+              <div className="text-justify">
                 <p className="text-lg">
                   {getTranslation(currentLocale, "hero_description")}
                 </p>
               </div>
             </SlideUpWhenVisible>
             <SlideUpWhenVisible from="top">
-              <div>
+              <div className="flex gap-5">
                 <Button
                   className="relative bg-gradient text-black w-fit hover:bg-default font-semibold text-md hover:scale-105 transition-transform hover:shadow z-50 overflow-hidden hover:transition-all duration-500 ease-in-out"
                   size={"lg"}
                   onClick={handleClick}
-                  // onClick={handleDownload}
                 >
-                  Танилцуулга татах
-                  <div className="absolute -bottom-7 -right-8 bg-[#fff] h-[50px] rotate-[-108deg] rounded-full w-[38%] z-0"></div>
+                  {getTranslation(currentLocale, "hero_download")}
+                  {/* <div className="absolute -bottom-7 -right-8 bg-[#fff] h-[50px] rotate-[-108deg] rounded-full w-[38%] z-0"></div> */}
+                </Button>
+                <Button
+                  className="relative bg-gradient text-black w-fit hover:bg-default font-semibold text-md hover:scale-105 transition-transform hover:shadow z-50 overflow-hidden hover:transition-all duration-500 ease-in-out"
+                  size={"lg"}
+                  onClick={handleClick}
+                >
+                  {getTranslation(currentLocale, "hero_traffic_info")}
                 </Button>
               </div>
             </SlideUpWhenVisible>

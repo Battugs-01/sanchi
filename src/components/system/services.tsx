@@ -20,18 +20,20 @@ import SlideUpWhenVisible from "./animate_when_visible";
 import { useState } from "react";
 import Data1 from "../modals/data1";
 import { getTranslation } from "@/locale/common";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 
 const Services = () => {
-  const currentPath = usePathname();
+  const searchParams = useSearchParams();
 
-  const currentLocale =
-    currentPath && currentPath.startsWith("/en") ? "en" : "mn";
+  const currentLocale = searchParams?.get("locale") || "mn";
   return (
     <div id="services">
       <div className=" container mx-auto py-32 text-center">
         <p className="py-16 font-bold text-4xl uppercase">
-          Бүтээгдэхүүн <span className=" font-medium">үйлчилгээ</span>
+          {getTranslation(currentLocale, "product")}
+          <span className=" font-medium">
+            {getTranslation(currentLocale, "service")}
+          </span>
         </p>
         <div className="relative flex flex-col gap-10">
           <div
@@ -79,13 +81,10 @@ const Services = () => {
             >
               <div className="flex flex-col justify-center gap-2">
                 <h3 className="text-3xl font-semibold uppercase mb-4 text-start">
-                  Олон улсын тээвэр зуучлал
+                  {getTranslation(currentLocale, "service_1")}
                 </h3>
                 <p className="text-start text-lg">
-                  Бид дэлхийн улс орнуудад байрлах агентын өргөн сүлжээгээ
-                  ашиглан үйлчлүүлэгчиддээ авто, агаар, далай, төмөр замын бүх
-                  төрлийн тээврийн замналаар улс хоорондын болон орон нутгийн
-                  ачаа тээврийг хаалганаас хаалганд хүргэн үйлчилдэг.
+                  {getTranslation(currentLocale, "service_desc")}
                 </p>
               </div>
               <Data1 />
@@ -101,14 +100,10 @@ const Services = () => {
             >
               <div className="flex flex-col justify-center gap-2">
                 <h3 className="text-3xl font-semibold uppercase mb-4 text-start">
-                  Гаалын терминал
+                  {getTranslation(currentLocale, "service_2")}
                 </h3>
                 <p className="text-start text-lg">
-                  Улаанбаатар хотын А зэрэглэлийн бүсэд байрлах өөрийн эзэмшлийн
-                  “Нэг цэгийн үйлчилгээ” бүхий “ТЭЭВЭР ҮЙЛЧИЛГЭЭНИЙ ЦОГЦОЛБОР”-т
-                  Гаалийн хяналтын бүс, стандартын шаардлага хангасан гаалийн
-                  баталгаат болон түр агуулах ажиллуулан тээвэр логистикийн цогц
-                  үйлчилгээг үзүүлж байна.
+                  {getTranslation(currentLocale, "service_2desc")}
                 </p>
               </div>
               <Button className="text-start rounded border-cyan-500 bg-cyan-500 shadow-lg shadow-cyan-500/50 text-[#fff] mt-4 flex items-center gap-2">
@@ -195,18 +190,14 @@ const Services = () => {
             >
               <div className="flex flex-col justify-center gap-2">
                 <h3 className="text-3xl font-semibold uppercase mb-4 text-start">
-                  Гаалын зуучлал
+                  {getTranslation(currentLocale, "service_3")}
                 </h3>
                 <p className="text-start text-lg">
-                  Гаалийн бүрдүүлэлт нь гаалийн хилээр нэвтрүүлэх барааг гаалийн
-                  байгууллагад мэдүүлсэн үеэс гаалийн бичиг баримтыг,
-                  шаардлагатай тохиолдолд барааг шалгах, ногдуулсан татварыг
-                  төлсний дараа барааг олгох, эсвэл гаалийн хилээр гаргахыг
-                  зөвшөөрөх хүртэлх цогц үйл ажиллагаа юм.
+                  {getTranslation(currentLocale, "service_3desc")}.
                 </p>
               </div>
               <Button className="text-start rounded border-cyan-500 bg-cyan-500 shadow-lg shadow-cyan-500/50 text-[#fff] mt-4 flex items-center gap-2">
-                Дэлгэрэнгүй
+                {getTranslation(currentLocale, "detail")}
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </SlideUpWhenVisible>

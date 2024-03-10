@@ -2,6 +2,8 @@ import { ManagerNamesData } from "@/lib/config";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
+import { getTranslation } from "@/locale/common";
+import { usePathname, useSearchParams } from "next/navigation";
 
 const Team = () => {
   return (
@@ -34,6 +36,9 @@ const Team = () => {
 export default Team;
 
 const HomeTeammembercard: React.FC<any> = (props) => {
+  const searchParams = useSearchParams();
+
+  const currentLocale = searchParams?.get("locale") || "mn";
   return (
     <div className={props.className}>
       <div className="relative">
@@ -82,7 +87,7 @@ const HomeTeammembercard: React.FC<any> = (props) => {
           {props?.username}
         </p>
         <p className="text-lg text-blue_gray-700_01 text-center w-auto">
-          {props?.userrole}
+          {getTranslation(currentLocale, props?.userrole)}
         </p>
       </div>
     </div>

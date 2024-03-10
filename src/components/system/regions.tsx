@@ -1,5 +1,7 @@
 import { RegionsData } from "@/lib/config";
+import { getTranslation } from "@/locale/common";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 
 const Regions = () => {
   return (
@@ -67,6 +69,9 @@ const CountryCard = ({
   daytext?: string;
   daytext2?: string;
 }) => {
+  const searchParams = useSearchParams();
+
+  const currentLocale = searchParams?.get("locale") || "mn";
   return (
     <div
       className=" rounded-lg p-4 flex flex-col text-left gap-8 text-white"
@@ -80,17 +85,25 @@ const CountryCard = ({
       </div>
       <div className="flex flex-col gap-10 items-start justify-between h-full">
         <>
-          <p className="font-semibold text-xl">{title}</p>
-          <p className="text-lg text-[#EAECF0]">{description}</p>
+          <p className="font-semibold text-xl">
+            {getTranslation(currentLocale, title)}
+          </p>
+          <p className="text-lg text-[#EAECF0]">
+            {getTranslation(currentLocale, description)}
+          </p>
         </>
         <div>
-          <p className="text-white/50 text-xl">{daytext}</p>
-          <p className="text-xl bg-gradient text-transparent bg-clip-text font-semibold">
-            {day}
+          <p className="text-white/50 text-xl">
+            {getTranslation(currentLocale, daytext || "")}
           </p>
-          <p className="text-white/50 text-xl">{daytext2}</p>
           <p className="text-xl bg-gradient text-transparent bg-clip-text font-semibold">
-            {day2}
+            {getTranslation(currentLocale, day || "")}
+          </p>
+          <p className="text-white/50 text-xl">
+            {getTranslation(currentLocale, daytext2 || "")}
+          </p>
+          <p className="text-xl bg-gradient text-transparent bg-clip-text font-semibold">
+            {getTranslation(currentLocale, day2 || "")}
           </p>
         </div>
       </div>
