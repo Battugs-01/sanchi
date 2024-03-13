@@ -1,9 +1,12 @@
 import GreetingPage from "@/components/system/greeting";
+import { Suspense } from "react";
 
 const Greeting = () => {
   return (
     <div>
-      <GreetingPage />
+      <Suspense>
+        <GreetingPage />
+      </Suspense>
     </div>
   );
 };
