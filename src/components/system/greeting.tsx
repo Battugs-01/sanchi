@@ -14,7 +14,7 @@ const GreetingPage = () => {
     <div id="greeting">
       <div className="relative flex justify-center">
         <Image
-          src="/images/greeting_back.png "
+          src="/images/greeting_back.png"
           width={1280}
           height={1080}
           priority
