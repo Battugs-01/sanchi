@@ -63,7 +63,7 @@ const Hero = () => {
             <SlideUpWhenVisible from="top">
               <div className="flex gap-5">
                 <Button
-                  className="relative bg-gradient text-black w-fit hover:bg-default font-semibold text-md hover:scale-105 transition-transform hover:shadow z-50 overflow-hidden hover:transition-all duration-500 ease-in-out"
+                  className="relative bg-gradient text-black w-fit hover:bg-default font-semibold md:text-base hover:scale-105 transition-transform hover:shadow z-50 overflow-hidden hover:transition-all duration-500 ease-in-out text-xs"
                   size={"lg"}
                   onClick={handleClick}
                 >
@@ -71,7 +71,7 @@ const Hero = () => {
                   {/* <div className="absolute -bottom-7 -right-8 bg-[#fff] h-[50px] rotate-[-108deg] rounded-full w-[38%] z-0"></div> */}
                 </Button>
                 <Button
-                  className="relative bg-gradient text-black w-fit hover:bg-default font-semibold text-md hover:scale-105 transition-transform hover:shadow z-50 overflow-hidden hover:transition-all duration-500 ease-in-out"
+                  className="relative bg-gradient text-black w-fit hover:bg-default font-semibold md:text-base hover:scale-105 transition-transform hover:shadow z-50 overflow-hidden hover:transition-all duration-500 ease-in-out text-xs"
                   size={"lg"}
                   onClick={handleClick}
                 >

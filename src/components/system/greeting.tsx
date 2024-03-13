@@ -7,6 +7,9 @@ import { getTranslation } from "@/locale/common";
 import { useSearchParams } from "next/navigation";
 
 const GreetingPage = () => {
+  const searchParams = useSearchParams();
+
+  const currentLocale = searchParams?.get("locale") || "mn";
   return (
     <div id="greeting">
       <div className="relative flex justify-center">
@@ -35,25 +38,17 @@ const GreetingPage = () => {
             <SlideUpWhenVisible className="flex-1 z-10" from="left">
               <div className="flex-1 ">
                 <h3 className="text-3xl font-semibold uppercase mb-4 text-start">
-                  Захирлын мэндчилгээ
+                  {getTranslation(currentLocale, "director_greetings")}
                 </h3>
                 <p className="text-justify text-lg">
-                  Манай компанийн цахим хуудсаар зочилж байгаа Эрхэм таны
-                  амрыг эрэн мэндчилье! Монгол улсын тээвэр зуучийн тэргүүлэх
-                  байгууллага “ТИ АЙ ЛОЖИСТИК” компанийн үйлчлүүлэгч та
-                  бүхнийхээ итгэлээр жигүүрлэн дэлхий ертөнцийн дөрвөн зүг
-                  найман зовхист хүрсэн өргөн сүлжээ, харилцаа холбоог бий
-                  болгож, дэлхийн жишигт нийцсэн тээврийн зуучийн үйлчилгээг
-                  үзүүлсээр ирсэн билээ. Тээврийн зуучийн салбар бол улс орны
-                  нийгэм, эдийн засгийн онцгой ач холбогдол бүхий салбар бөгөөд
-                  цаашид бид эх орон, ард түмэн, эрхэм харилцагч та бүхнээ
-                  дэлхий нийттэй холбогч гүүр байж, эх орныхоо хөгжил цэцэглэлт,
-                  бүтээн байгуулалтад хувь нэмэр оруулж, хамтдаа хөгжинө гэдэгт 
-                  итгэл дүүрэн байна.
+                  {getTranslation(currentLocale, "director_greetings1")}
                 </p>
               </div>
               <div className="text-start text-lg flex gap-10 mt-8">
-                <p className="text-lg">Ерөнхий захирал</p>
+                <p className="text-lg">
+                  {" "}
+                  {getTranslation(currentLocale, "CEO")}
+                </p>
                 <p className="font-bold">Туяа</p>
               </div>
             </SlideUpWhenVisible>

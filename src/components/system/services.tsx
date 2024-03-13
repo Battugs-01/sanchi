@@ -21,6 +21,8 @@ import { useState } from "react";
 import Data1 from "../modals/data1";
 import { getTranslation } from "@/locale/common";
 import { usePathname, useSearchParams } from "next/navigation";
+import Data2 from "../modals/data2";
+import Data3 from "../modals/data3";
 
 const Services = () => {
   const searchParams = useSearchParams();
@@ -28,7 +30,7 @@ const Services = () => {
   const currentLocale = searchParams?.get("locale") || "mn";
   return (
     <div id="services">
-      <div className=" container mx-auto py-32 text-center">
+      <div className="container mx-auto py-32 md:text-center text-start">
         <p className="py-16 font-bold text-4xl uppercase">
           {getTranslation(currentLocale, "product")}
           <span className=" font-medium">
@@ -106,10 +108,7 @@ const Services = () => {
                   {getTranslation(currentLocale, "service_2desc")}
                 </p>
               </div>
-              <Button className="text-start rounded border-cyan-500 bg-cyan-500 shadow-lg shadow-cyan-500/50 text-[#fff] mt-4 flex items-center gap-2">
-                {getTranslation(currentLocale, "detail")}
-                <ArrowRight className="h-4 w-4" />
-              </Button>
+              <Data2 />
             </SlideUpWhenVisible>
             <SlideUpWhenVisible
               className="col-span-1 z-10 hidden md:block"
@@ -196,10 +195,7 @@ const Services = () => {
                   {getTranslation(currentLocale, "service_3desc")}.
                 </p>
               </div>
-              <Button className="text-start rounded border-cyan-500 bg-cyan-500 shadow-lg shadow-cyan-500/50 text-[#fff] mt-4 flex items-center gap-2">
-                {getTranslation(currentLocale, "detail")}
-                <ArrowRight className="h-4 w-4" />
-              </Button>
+              <Data3 />
             </SlideUpWhenVisible>
           </div>
           <Image

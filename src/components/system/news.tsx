@@ -13,7 +13,7 @@ const News = () => {
     <div className="bg-[#F9FAFB] overflow-hidden py-32">
       <div className="w-full text-center">
         <p className="pb-16 font-bold text-4xl uppercase">
-          Бүтээгдэхүүн <span className=" font-medium">үйлчилгээ</span>
+          Бүтээгдэхүүн <span className=" font-medium"> үйлчилгээ</span>
         </p>
       </div>
       <div className="container mx-auto ">

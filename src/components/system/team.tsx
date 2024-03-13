@@ -1,16 +1,22 @@
 import { ManagerNamesData } from "@/lib/config";
+import { getTranslation } from "@/locale/common";
 import Image from "next/image";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { Button } from "../ui/button";
-import { getTranslation } from "@/locale/common";
-import { usePathname, useSearchParams } from "next/navigation";
 
 const Team = () => {
+  const searchParams = useSearchParams();
+
+  const currentLocale = searchParams?.get("locale") || "mn";
   return (
     <div className="w-full container mx-auto py-28 text-center">
       <div className="bg-white-A700 flex flex-col md:gap-10 gap-[72px] items-center justify-center ">
-        <p className="font-bold text-4xl uppercase">
-          Манай <span className=" font-medium">Баг</span>
+        <p className="pb-16 font-bold text-4xl uppercase">
+          {getTranslation(currentLocale, "our")}
+          <span className=" font-medium">
+            {getTranslation(currentLocale, "team1")}
+          </span>
         </p>
         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {ManagerNamesData.map((item: any, index: any) => {

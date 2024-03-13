@@ -280,7 +280,7 @@ const Header = () => {
                 className="justify-end relative bg-gradient text-black w-fit hover:bg-default font-semibold text-md hover:scale-105 transition-transform hover:shadow z-50 overflow-hidden hover:transition-all duration-500 ease-in-out"
                 size="lg"
               >
-                Үнийн санал авах
+                {getTranslation(currentLocale, "get_quotes")}
               </Button>
             </div>
           </div>

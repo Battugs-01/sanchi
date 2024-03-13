@@ -12,9 +12,9 @@ const Partners = () => {
   const currentLocale = searchParams?.get("locale") || "mn";
   return (
     <div className="bg-[#F9FAFB] overflow-hidden py-32">
-      <div className="w-full text-center">
+      <div className="w-full md:text-center text-start">
         <p className="pb-16 font-bold text-4xl uppercase">
-          {getTranslation(currentLocale, "partners")}{" "}
+          {getTranslation(currentLocale, "partners")}
           <span className=" font-medium">
             {getTranslation(currentLocale, "XXK")}
           </span>
